@@ -1,68 +1,259 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# COUPLE IT
 
-## Available Scripts
+## Description
+CoupleIt is a tool that helps you and your partner to organise the life together. Collaborative platform for couples sharing features as counting important dates, to-do tasks, photo gallery and calendar.
+I built it by myself with HTML, ES6, React, Express, Node.js, HTTP, CRUD, Auth.
 
-In the project directory, you can run:
 
-### `npm start`
+## User Stories
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+-  **404:** As an anon/user I can see a 404 page if I try to reach a page that does not exist so that I know it's my fault
+-  **Signup:** As an anon I can sign up in the platform so that I can start creating or joining another user
+-  **Login:** As a user I can login to the platform so that I can see my profile and private features
+-  **Logout:** As a user I can logout from the platform so no one else can use it
+-  **See my profile:** As a user I want to see my profile
+-  **Edit my profile:** As a user I can edit my profile
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+-  **Connect to another user:** As a user I can connect to another user that will be my couple
 
-### `npm test`
+-  **See my tasks:** As a user I want to see my tasks page
+-  **Add tasks:** As a user I can add a task
+-  **Edit tasks:** As a user I can edit a task
+-  **Delete tasks:** As a user I can delete a task
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-  **See my gallery:** As a user I want to see my photo gallery
+-  **Add photo:** As a user I can add a photo to my gallery
+-  **Edit photo:** As a user I can edit a photo title
+-  **Delete photo:** As a user I can delete a photo 
 
-### `npm run build`
+-  **See my stories:** As a user I want to see my story page
+-  **Add story:** As a user I can add a story to my stories
+-  **Edit story:** As a user I can edit a story 
+-  **Delete story:** As a user I can delete a story 
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-  **See my calendar:** As a user I want to see my calendar page
+-  **Add calendar:** As a user I can add a date to my calendar
+-  **Edit calendar:** As a user I can edit a date to my calendar
+-  **Delete calendar:** As a user I can delete a date from my calendar
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Backlog
+- Share photo WhatsApp, Instagram, Facebook
+- Google Calendar
+-SignIn with Google, Facebook
+-Facebook events share
+-Real time chat
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Client / Frontend
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Routes (React App)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+| Path | Component | Permissions |  Behavior
+|---|---|---|---|      
+| / | Landing page | public | Landing page view. 
+| /auth/login | LoginPage | anon only | Login form, link to signup, navigate to homepage after login.   
+| /auth/signup | SignupPage | anon only | Signup form, link to login, navigate to homepage after signup.
+| /auth/logout | n/a | anon only | Navigate to landing page after logout, expire session.   
+| /index | IndexPage | user only | Renders index view. 
+| /profile/:id | ProfilePage | user only | Renders profile view. 
+| /profile/:id/edit | ProfileEditPage | user only | Renders profile/edit form view. 
+| /profile/:id/edit | ProfileEditPage | user only |  Sends edit-profile info to server and updates user in DB. Redirects to the  profile view. 
+| /tasks | TasksPage | user only |  Renders the tasks view. 
+| /tasks | TasksPage | user only |  Adds a new task. Redirects to the tasks view.  
+| /tasks/:id | TasksPage | user only | Edit the existing task in the DB. Redirects to the tasks view.  
+| /tasks/:id | TasksPage | user only |  Deletes the existing task in DB. Redirects to the tasks view.  
+| /gallery | GalleryPage | user only | Renders the gallery view. 
+| /gallery | GalleryPage | user only | Adds a new photo. Redirects to the gallery view.  
+| /gallery/:id | GalleryDetailPage | user only |  Renders the photo detail view. 
+| /gallery/:id | GalleryDetailPage | user only | Edit the existing photo title in the DB. Renders the photo detail view. 
+| /gallery/:id | GalleryDetailPage | user only |  Deletes the existing photo in DB. Redirects to the gallery view.  
+| /story | StoryPage | user only |  Renders the story dates view. 
+| /story | StoryPage | user only |  Adds a new story date. Redirects to the story dates view.  
+| /story/:id | StoryPage | user only | Edit the existing story date in the DB. Redirects to the story dates view.  
+| /story/:id | StoryPage | user only | Deletes the existing story date in DB. Redirects to the story dates view.  
+| /calendar | CalendarPage | user only |  Renders the calendar dates view. 
+| /calendar | CalendarPage | user only | Adds a new event date. Redirects to the calendar dates view.  
+| /calendar/:id | CalendarPage | user only | Edit the existing calendar date in the DB. Redirects to the calendar dates view. 
+| /calendar/:id | CalendarPage | user only | Deletes the existing calendar date in DB. Redirects to the calendar dates view.  
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Components
 
-## Learn More
+- LandingPage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- HomePage
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- ProfilePage
 
-### Code Splitting
+- ProfileEditPage
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+- GalleryPage
 
-### Analyzing the Bundle Size
+- GalleryDetailPage
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+- TasksPage
 
-### Making a Progressive Web App
+- StoriesPage
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+- CalendarPage
 
-### Advanced Configuration
+- Navbar
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+- Footer
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+## Services
 
-### `npm run build` fails to minify
+- Auth Service
+  - auth.login(user)
+  - auth.signup(user)
+  - auth.imageUpload(file)
+  - auth.logout()
+  - auth.me()
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- User Service
+  - user.getOne(id)
+  - user.getOneByEmail(email)
+  - user.updateUser(id, data)
+  
+- Couple Service
+  - user.getAll()
+  - user.getOne(id)
+  - user.getOneByEmail(email)
+  - user.updateUser(id, data)
+
+- Gallery Service
+  - gallery.getAll()
+  - gallery.create(data)
+  - gallery.getOne(id)
+  - gallery.updateOne(data)
+  - gallery.delete(data)
+
+- Task Service
+  - tasks.getAll()
+  - tasks.create(data)
+  - tasks.getOne(id)
+  - tasks.updateOne(data)
+  - tasks.delete(data)
+
+- Story Service
+  - story.getAll()
+  - story.create(data)
+  - story.getOne(id)
+  - story.updateOne(data)
+  - story.delete(data)
+
+- Calendar Service
+  - calendar.getAll()
+  - calendar.create(data)
+  - calendar.getOne(id)
+  - calendar.updateOne(data)
+  - calendar.delete(data)
+
+
+# Server / Backend
+
+## Models
+```
+user={
+  password: String,
+  username: String
+  email: {
+    type:String,
+    required: true,
+    unique: true
+  },
+  photoUrl: String,
+  coupleId: {type: Schema.Types.ObjectId, ref: ‘Couple’},
+}
+
+couple={
+ gallery: [{type: Schema.Types.ObjectId, ref: ‘Gallery’}],
+ tasks: [{type: Schema.Types.ObjectId, ref: ‘Task’}],
+ stories: [{type: Schema.Types.ObjectId, ref: ‘Story’}],
+calendar: [{type: Schema.Types.ObjectId, ref: ‘Calendar’}],
+members:[{type: Schema.Types.ObjectId, ref: ‘User’}],
+}
+
+gallery={
+  title:{ type: String, required: true},
+ photoUrl: { type: String, required: true},
+  coupleId:{ type: Schema.Types.ObjectId, ref: ‘Couple’},
+}
+
+task={
+  name:{ type: String, required: true},
+  description: { type: String, required: true},
+ coupleId:{ type: Schema.Types.ObjectId, ref: ‘Couple’},
+}
+
+story={
+  date:{ type: String, required: true},
+  title:{ type: String, required: true},
+  description:{ type: String, required: true},
+  type: { type: String, required: true},
+ coupleId:{ type: Schema.Types.ObjectId, ref: ‘Couple’},
+}
+
+calendar={
+  date:{ type: String, required: true},
+  event:{ type: String, required: true},
+  type: { type: String, required: true},
+  coupleId:{ type: Schema.Types.ObjectId, ref: ‘Couple’},
+}
+
+
+```
+
+
+## API Endpoints (backend routes)
+
+| HTTP Method | URL| Request Body|Description| 
+|---|---|---|---|         
+| GET | / | Landing page route. Renders landing page view. 
+| GET | /auth/login | Renders auth-views/login form view.   
+| POST | /auth/login | {username, password} | Sends Login form data to the server. Redirects to the index view.  
+| GET | /auth/signup | Renders auth-views/signup form view.   
+| POST | /auth/signup | { password,  username,  email, photoUrl, quote, partnerEmail } | Sends Sign Up info to the server and creates user in the DB. Redirects to the index view. 
+| GET | /auth/logout | (empty) | Renders the landing page view.   
+| GET | /index | Private route. Renders index view. 
+| GET | /profile/:id | Private route. Renders profile view. 
+| GET | /profile/:id/edit | Private route. Renders profile/edit form view. 
+| PUT | /profile/:id/edit | { password,  username,  email, photoUrl, quote, partnerEmail } |Private route. Sends edit-profile info to server and updates user in DB. Redirects to the  profile view. 
+| GET | /tasks | Private route. Renders the tasks view. 
+| POST | /tasks | { name, description} | Private route. Adds a new task. Redirects to the tasks view.  
+| PUT | /tasks/:id | { name, description} | Private route. Edit the existing task in the DB. Redirects to the tasks view.  
+| DELETE | /tasks/:id | {id} | Private route. Deletes the existing task in DB. Redirects to the tasks view.  
+| GET | /gallery | Private route. Renders the gallery view. 
+| POST | /gallery | { title, photoUrl } | Private route. Adds a new photo. Redirects to the gallery view.  
+| GET | /gallery/:id | {id} | Private route. Renders the photo detail view. 
+| PUT | /gallery/:id | { title, photoUrl } | Private route. Edit the existing photo title in the DB. Renders the photo detail view. 
+| DELETE | /gallery/:id | {id} | Private route. Deletes the existing photo in DB. Redirects to the gallery view.  
+| GET | /story | Private route. Renders the story dates view. 
+| POST | /story | { date, description, title, type } | Private route. Adds a new story date. Redirects to the story dates view.  
+| PUT | /story/:id | { date, description, title, type } | Private route. Edit the existing story date in the DB. Redirects to the story dates view.  
+| DELETE | /story/:id | {id} | Private route. Deletes the existing story date in DB. Redirects to the story dates view.  
+| GET | /calendar | Private route. Renders the calendar dates view. 
+| POST | /calendar | { date, event, type } | Private route. Adds a new event date. Redirects to the calendar dates view.  
+| PUT | /calendar/:id | { date, event, type } | Private route. Edit the existing calendar date in the DB. Redirects to the calendar dates view.  
+| DELETE | /calendar/:id | {id} | Private route. Deletes the existing calendar date in DB. Redirects to the calendar dates view.  
+
+
+## Links
+
+
+### Trello
+Link to your trello board
+[Link url](https://trello.com/invite/b/RQ9oAh0W/013a144cd8f0722b171a0f947135b111/couple-app)
+
+
+### Git
+URls for the project repo and deploy
+[Link Repo Server]()
+[Link Repo Client]()
+[Link Deploy]()
+
+
+### Slides
+URls for the project presentation (slides)
+[Link Slides.com](https://docs.google.com/presentation/d/1QVpkPgq-aePxqcCm08F6kw7_UIKDhTURQPRnWkwhyQc/edit?usp=sharing)
