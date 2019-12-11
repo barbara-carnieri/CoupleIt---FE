@@ -10,23 +10,23 @@ class Profile extends Component {
   };
 
 
-  getProfile = id => {
-    axios
-      .get(`http://localhost:5000/auth/profile/${id}`)
-      .then(apiResponse => {
-        const theProfile = apiResponse.data;
+  // getProfile = id => {
+  //   axios
+  //     .get(`http://localhost:5000/auth/profile/${id}`)
+  //     .then(apiResponse => {
+  //       const theProfile = apiResponse.data;
        
-        this.setState(theProfile);
-      })
-      .catch(err => console.log(err));
-  };
+  //       this.setState(theProfile);
+  //     })
+  //     .catch(err => console.log(err));
+  // };
 
 
 
-  componentDidMount() {
-    const { id } = this.props.match.params;
-    this.getProfile(id);
-  }
+  // componentDidMount() {
+  //   const { id } = this.props.match.params;
+  //   this.getProfile(id);
+  // }
 
 
   render() {

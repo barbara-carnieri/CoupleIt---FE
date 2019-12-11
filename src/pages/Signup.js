@@ -47,7 +47,7 @@ class Signup extends Component {
             onChange={this.handleChange}
           />
 
-          <label>Profile Photo:</label>
+          <label for="photoUrl">Profile Photo:</label>
           <input
             type="file"
             name="photoUrl"
