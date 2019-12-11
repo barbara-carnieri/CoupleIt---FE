@@ -3,14 +3,15 @@ import { Link } from 'react-router-dom';
 import { withAuth } from '../lib/AuthProvider';
 
 class Signup extends Component {
-  state = { username: '', password: '' };
+  state = { username: '', password: '', email: '', photoUrl: '' };
 
   handleFormSubmit = event => {
     event.preventDefault();
-    const { username, password } = this.state;
+    const { username, password, email, photoUrl } = this.state;
     //  console.log('Signup -> form submit', { username, password });
-    this.props.signup({ username, password }); // props.signup is Provided by withAuth() and Context API
+    this.props.signup({ username, password, email, photoUrl }); // props.signup is Provided by withAuth() and Context API
   };
+
 
   handleChange = event => {
     const { name, value } = event.target;
@@ -18,16 +19,23 @@ class Signup extends Component {
   };
 
   render() {
-    const { username, password } = this.state;
+    const { username, password, email, photoUrl} = this.state;
     return (
       <div>
         <h1>Sign Up</h1>
-        <form onSubmit={this.handleFormSubmit}>
+        <form onSubmit={this.handleFormSubmit} enctype="multipart/form-data">
           <label>Username:</label>
           <input
             type="text"
             name="username"
             value={username}
+            onChange={this.handleChange}
+          />
+        <label>Email:</label>
+          <input
+            type="text"
+            name="email"
+            value={email}
             onChange={this.handleChange}
           />
 
@@ -36,6 +44,14 @@ class Signup extends Component {
             type="password"
             name="password"
             value={password}
+            onChange={this.handleChange}
+          />
+
+          <label>Profile Photo:</label>
+          <input
+            type="file"
+            name="photoUrl"
+            value={photoUrl}
             onChange={this.handleChange}
           />
 

@@ -11,7 +11,8 @@ const withAuth = WrappedComponent => {
       return (
         <Consumer>
           {/* <Consumer> component provides callback which receives Providers "value" object */}
-          {({ login, signup, user, logout, isLoggedin }) => {
+          {/* (value) => { <WrappedComponent />}  */}
+          {({ login, signup, user, logout, isLoggedin, isLoading }) => {
             return (
               <WrappedComponent
                 login={login}
@@ -19,6 +20,7 @@ const withAuth = WrappedComponent => {
                 user={user}
                 logout={logout}
                 isLoggedin={isLoggedin}
+                isLoading={isLoading}
                 {...this.props}
               />
             );
@@ -45,19 +47,19 @@ class AuthProvider extends React.Component {
   }
 
   signup = user => {
-    const { username, password } = user;
+    const { username, password, email, photoUrl } = user;
 
     authService
-      .signup({ username, password })
+      .signup({ username, password, email, photoUrl })
       .then(user => this.setState({ isLoggedin: true, user }))
       .catch(err => console.log(err));
   };
 
   login = user => {
-    const { username, password } = user;
+    const { email, password } = user;
 
     authService
-      .login({ username, password })
+      .login({ email, password })
       .then(user => this.setState({ isLoggedin: true, user }))
       .catch(err => console.log(err));
   };
