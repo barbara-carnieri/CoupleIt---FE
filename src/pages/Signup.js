@@ -36,7 +36,7 @@ class Signup extends Component {
     return (
       <div>
         <h1>Sign Up</h1>
-        <form onSubmit={this.handleFormSubmit} >
+        <form onSubmit={this.handleFormSubmit} encType="multipart/form-data">
           <label>Username:</label>
           <input
             type="text"

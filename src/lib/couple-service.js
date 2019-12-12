@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-class CoupleService {
+  class CoupleService {
   constructor() {
     this.coupleService = axios.create({
       baseURL: 'http://localhost:5000/couple',
@@ -8,16 +8,30 @@ class CoupleService {
     });
   }
 
-
-  createCouple(couple){
-    const { email, name } = couple;
-    return this.coupleService.post('/', {email, name})
-      .then(({ data }) => data);
-  }
-
-
+  createCouple = (oneCouple) => {
+    const { name, email } = oneCouple;
+    return this.coupleService
+    .post('/', { name, email })
+    .then( response => {
+        const {newCouple} = response.data;
+        return newCouple;
+    })
+    .catch( err => console.log(err))
 }
 
-const couple = new CoupleService();
+  // getAll() {
+  //   return this.example
+  //             .get()
+  //             .then(({ data }) => data);
+  // }
 
-export default couple;
+  // getOneById(id) {
+  //   return this.example
+  //             .get(`/${id}`)
+  //             .then(({ data }) => data);
+  // }
+}
+
+const coupleService = new CoupleService();
+
+export default coupleService;

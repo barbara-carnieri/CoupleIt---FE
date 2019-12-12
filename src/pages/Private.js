@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { withAuth } from '../lib/AuthProvider';
+import coupleService from '../lib/couple-service';
+
 
 class Private extends Component {
   state = { email: '', name: ''};
@@ -6,8 +9,10 @@ class Private extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     const { email, name } = this.state;
-
-    this.props.private({ email, name }); // props.signup is Provided by withAuth() and Context API
+console.log(this.state.name)
+    coupleService.createCouple({ email, name }).then(createdCouple => {
+      return createdCouple
+    }); // props.signup is Provided by withAuth() and Context API
   };
 
 
@@ -48,4 +53,4 @@ class Private extends Component {
   }
 }
 
-export default Private;
+export default withAuth(Private);

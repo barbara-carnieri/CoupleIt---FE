@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import { Switch} from 'react-router-dom';
 
+import Navbar from './components/Navbar';
+
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Private from './pages/Private';
-import Navbar from './components/Navbar';
-
 import Profile from './pages/Profile';
 import Task from './pages/Task';
 import Calendar from './pages/Calendar';
 import Story from './pages/Story';
 import Gallery from './pages/Gallery';
+import Home from './pages/Home';
 
 import AnonRoute from './components/AnonRoute';
 import PrivateRoute from './components/PrivateRoute';
@@ -32,6 +33,7 @@ class App extends Component {
           <PrivateRoute exact path="/task" component={Task} />
           <PrivateRoute exact path="/story" component={Story} />
           <PrivateRoute exact path="/gallery" component={Gallery} />
+          <PrivateRoute exact path="/home" component={Home} />
         </Switch>
       </div>
     );
