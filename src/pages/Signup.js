@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withAuth } from '../lib/AuthProvider';
+import  paintingService from '../lib/newPaintingCopy';
 
 class Signup extends Component {
   state = { username: '', password: '', email: '', photoUrl: '' };
@@ -18,12 +19,24 @@ class Signup extends Component {
     this.setState({ [name]: value });
   };
 
+
+  fileChange = (event) => {
+    const file = event.target.files[0];
+    const uploadData = new FormData()
+    uploadData.append('photo', file)
+    paintingService.imageUpload(uploadData)
+    .then((image) => {
+        this.setState({ photoUrl: image })
+    })
+    .catch((error) => console.log(error))
+  }
+// enctype="multipart/form-data"
   render() {
     const { username, password, email, photoUrl} = this.state;
     return (
       <div>
         <h1>Sign Up</h1>
-        <form onSubmit={this.handleFormSubmit} enctype="multipart/form-data">
+        <form onSubmit={this.handleFormSubmit} >
           <label>Username:</label>
           <input
             type="text"
@@ -47,12 +60,12 @@ class Signup extends Component {
             onChange={this.handleChange}
           />
 
-          <label for="photoUrl">Profile Photo:</label>
+          <label>Profile Photo:</label>
           <input
             type="file"
             name="photoUrl"
-            value={photoUrl}
-            onChange={this.handleChange}
+            // value={photoUrl}
+            onChange={e => this.fileChange(e)}
           />
 
           <input type="submit" value="Signup" />
