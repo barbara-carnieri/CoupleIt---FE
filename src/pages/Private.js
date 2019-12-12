@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
 class Private extends Component {
-  state = { email: ''};
+  state = { email: '', name: ''};
 
   handleFormSubmit = event => {
     event.preventDefault();
-    const { email } = this.state;
+    const { email, name } = this.state;
 
-    this.props.private({ email }); // props.signup is Provided by withAuth() and Context API
+    this.props.private({ email, name }); // props.signup is Provided by withAuth() and Context API
   };
 
 
@@ -20,11 +20,20 @@ class Private extends Component {
 
 
   render() {
-    const { email } = this.state;
+    const { email, name } = this.state;
     return (
       <div>
         <h1>Connect with your Pair!</h1>
         <form onSubmit={this.handleFormSubmit}>
+
+        <label>Couple name:</label>
+          <input
+            type="text"
+            name="name"
+            value={name}
+            onChange={this.handleChange}
+          />
+
           <label>Your Partner Email:</label>
           <input
             type="text"

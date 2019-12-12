@@ -10,8 +10,8 @@ class CoupleService {
 
 
   createCouple(couple){
-    const { email } = couple;
-    return this.coupleService.post('/', {email})
+    const { email, name } = couple;
+    return this.coupleService.post('/', {email, name})
       .then(({ data }) => data);
   }
 
