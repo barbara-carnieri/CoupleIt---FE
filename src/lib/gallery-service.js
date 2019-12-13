@@ -31,11 +31,15 @@ import axios from 'axios';
   getOneById(id) {
     return this.galleryService
               .get(`/${id}`)
-              .then(apiResponse => {
-                const theGallery = apiResponse.data;
-                // const { title, description, tasks } = theProject;
-                this.setState(theGallery);
-              })
+              .then(response => response.data);
+ 
+  }
+
+  getOneDelete(id) {
+    return this.galleryService
+              .delete(`/${id}`)
+              .then(response => response.data)
+              .catch( (err) => console.log(err));
   }
 
 }

@@ -31,7 +31,7 @@ class Signup extends Component {
   }
 // enctype="multipart/form-data"
   render() {
-    const { username, password, email, photoUrl} = this.state;
+    const { username, password, email} = this.state;
     return (
       <div>
         <h1>Sign Up</h1>

@@ -12,12 +12,15 @@ import Calendar from './pages/Calendar';
 import Story from './pages/Story';
 import Gallery from './pages/Gallery';
 import Home from './pages/Home';
+import GalleryDetail from './pages/GalleryDetail';
+
 
 import AnonRoute from './components/AnonRoute';
 import PrivateRoute from './components/PrivateRoute';
 
 
 class App extends Component {
+  
   render() {
     return (
       <div className="App">
@@ -33,6 +36,7 @@ class App extends Component {
           <PrivateRoute exact path="/task" component={Task} />
           <PrivateRoute exact path="/story" component={Story} />
           <PrivateRoute exact path="/gallery" component={Gallery} />
+          <PrivateRoute exact path="/gallery/:id" component={GalleryDetail} />
           <PrivateRoute exact path="/home" component={Home} />
         </Switch>
       </div>

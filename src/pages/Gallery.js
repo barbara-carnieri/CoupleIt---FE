@@ -4,6 +4,8 @@ import { withAuth } from '../lib/AuthProvider';
 import  paintingService from '../lib/newPaintingCopy';
 import galleryService from '../lib/gallery-service';
 
+
+
 class Gallery extends Component {
   state = { 
     title: '', 
@@ -52,7 +54,7 @@ class Gallery extends Component {
   }
 
   render() {
-    const { title, photoUrl} = this.state;
+    const { title} = this.state;
     return (
       <div>
         <h1>Add your Photo!</h1>
@@ -69,7 +71,7 @@ class Gallery extends Component {
           <input
             type="file"
             name="photoUrl"
-            // value={photoUrl}
+            alt="photo"
             onChange={e => this.fileChange(e)}
           />
 
@@ -79,9 +81,9 @@ class Gallery extends Component {
         {this.state.listOfGallery.map(gallery => {
           return (
             <div key={gallery._id} className="gallery">
-              <Link to={`/gallery/${gallery._id}`}>
+              <Link to={`/gallery/${gallery._id}`} {...this.props}>
                 <h3>{gallery.title}</h3>
-                {/* <img>{gallery.photoUrl}</p> */}
+                 <img src={gallery.photoUrl} alt="photoUrl"/>
               </Link>
             </div>
           );
