@@ -4,6 +4,50 @@
   
 } */
 
+body {
+  margin: 20px;
+  padding: 0;
+  /* background-image: url(./images/Couple.It..png); */
+  background-color: orange;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#navbarmain {
+  background-color: whitesmoke;
+}
+
+#footermain {
+  background-color: whitesmoke;
+}
+
+#card-home {
+  max-width: 90vw;
+  display: flex;
+  flex-wrap: wrap;
+  height: 12rem;
+}
+
+.card {
+  width: 26vw;
+  height: 10rem;
+  margin: 0 2px;
+  padding: 0;
+}
+
+.calendar {
+  padding: 50px 10px;
+}
+
+.card-header{
+  height: 40%;
+}
+
+.card-body{
+  height: 60%;
+}
+
 .App {
   /* text-align: center; */
 }
@@ -28,6 +72,13 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.App-background {
+  /* background-image: url(./images/Couple.It..png);
+  height: 900px;
+  width: 100%; */
+ 
 }
 
 .App-link {

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { withAuth } from '../lib/AuthProvider';
 import storyService from '../lib/story-service';
 
+import DateCountdown from 'react-date-countdown-timer';
+
 import Footer from '../components/Footer';
 
 class Story extends Component {
@@ -26,6 +28,7 @@ class Story extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     const { date, title, description, type } = this.state;
+    console.log(this.state)
     // const { coupleId } = this.props; 
     //  console.log('Gallery -> form submit', { title, photoUrl });
     storyService.createStory({ date, title, description, type }); 
@@ -48,6 +51,7 @@ class Story extends Component {
 
   render() {
     const { date, title, description, type } = this.state;
+
     return (
       <div>
         <h1>Story Route</h1>
@@ -82,8 +86,8 @@ class Story extends Component {
           />
           </div>
           <div className="form-group">
-          <label>Type:</label>
-          <select class="form-control" id="exampleFormControlSelect1"
+          <label htmlFor="exampleFormControlSelect1">Type:</label>
+          <select className="form-control" id="exampleFormControlSelect1"
             name="type"
             value={type}
             onChange={this.handleChange}>
@@ -97,13 +101,14 @@ class Story extends Component {
         </form>
 
         {this.state.listOfStories.map(story => {
+        
           return (
             <div key={story._id} className="story">
-              {/* <Link to={`/gallery/${task._id}`} {...this.props}> */}
+            <h3><DateCountdown dateTo={story.date} callback={() => alert('Hello!')} /> DAYS LEFT! </h3>
                <h3>Date: {story.date}</h3>
                 <h3>Story: {story.title}</h3>
-                <p>{story.description}</p>
                 <p>{story.type}</p>
+                {/* <p>{countdown} days left!!!</p> */}
                 <button className="btn btn-outline-success"
                 onClick={() => this.deleteStory(story._id)}>
     	          Delete
@@ -125,9 +130,3 @@ class Story extends Component {
 export default withAuth(Story);
 
 
-{/* <input className="form-control"
-type="text"
-name="type"
-value={type}
-onChange={this.handleChange}
-/> */}

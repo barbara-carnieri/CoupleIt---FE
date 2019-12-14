@@ -9,7 +9,7 @@ class Footer extends Component {
     return (
       <div>
         {isLoggedin ? (
-          <div className="footer navbar navbar-dark fixed-bottom">
+          <div id="footermain" className="footer navbar navbar-dark fixed-bottom">
           <div className="nav-item nav-link active">
           <Link 
           to="/calendar">{' '}<i className="material-icons">event</i>{' '}

@@ -5,24 +5,17 @@ import  paintingService from '../lib/newPaintingCopy';
 import galleryService from '../lib/gallery-service';
 import Footer from '../components/Footer';
 
-
-
 class Gallery extends Component {
   state = { 
     title: '', 
     photoUrl: '',
     listOfGallery: [],
   };
-  // state = {
-  //   listOfGallery: [],
-  // };
 
   componentDidMount() {
     galleryService.getCoupleGallery().then(
       listOfGallery => {
         this.setState({listOfGallery})
-        // console.log('RESSS', res);
-        
       }
     );
   }
@@ -36,12 +29,10 @@ class Gallery extends Component {
 
   };
 
-
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
-
 
   fileChange = (event) => {
     const file = event.target.files[0];
@@ -81,17 +72,19 @@ class Gallery extends Component {
         </div>
           <input type="submit" className="btn btn-outline-success" value="ADD" />
         </form>
-
+        <div className="card-deck">
         {this.state.listOfGallery.map(gallery => {
           return (
-            <div key={gallery._id} className="gallery">
+            <div key={gallery._id} className="card gallery">
               <Link to={`/gallery/${gallery._id}`} {...this.props}>
-                <h3>{gallery.title}</h3>
-                 <img src={gallery.photoUrl} alt="photoUrl"/>
+                <h5 className="card-title">{gallery.title}</h5>
+                 <img src={gallery.photoUrl} className="card-img-top" alt="photoUrl"/>
               </Link>
-            </div>
+              </div>
+            
           );
         })}
+        </div>
 
 
         <Link to={'/home'}> Home Page</Link>

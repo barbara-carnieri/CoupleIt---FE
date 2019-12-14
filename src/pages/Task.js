@@ -23,7 +23,8 @@ class Task extends Component {
     const { name, description } = this.state;
     // const { coupleId } = this.props; 
     //  console.log('Gallery -> form submit', { title, photoUrl });
-    taskService.createTask({ name, description}); 
+    taskService.createTask({ name, description});
+ 
 
   };
 

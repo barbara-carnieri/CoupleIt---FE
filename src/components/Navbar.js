@@ -6,14 +6,17 @@ import { withAuth } from '../lib/AuthProvider';
 class Navbar extends Component {
   render() {
     const { user, logout, isLoggedin } = this.props;
-    console.log(this.props)
+    // console.log(this.props)
     return (
       <div>
         
         {isLoggedin ? (
-          <div className="navbar navbar-dark sticky-top">
-
-            <p>username: {user.username}</p>
+          <div id="navbarmain" className="navbar navbar-dark fixed-top">
+        <Link className="navbar-brand" to="/home">
+        {' '}
+        <img src={require("../images/Couple.It..png")} width="30" height="30" alt="" />{' '}
+        </Link>
+            <p className="navbar-item pt-3 font-weight-bold"> {user.username}</p>
             <button className="btn btn-outline-success my-2 my-sm-0" onClick={logout}>Logout</button>
           </div>
         ) : (
@@ -37,7 +40,3 @@ class Navbar extends Component {
 
 export default withAuth(Navbar);
 
-{/* <Link className="navbar-brand" to="/home">
-{' '}
-<img src="src/Couple.It..png" width="30" height="30" alt="" />{' '}
-</Link> */}
