@@ -3,13 +3,16 @@ import { withAuth } from '../lib/AuthProvider';
 import { Link } from 'react-router-dom';
 import taskService from '../lib/task-service';
 import galleryService from '../lib/gallery-service';
+import storyService from '../lib/story-service';
 import Footer from '../components/Footer';
+import DateCountdown from 'react-date-countdown-timer';
 
 
 class Home extends Component {
   state = {
     tasks: [],
-    gallery: []
+    gallery: [],
+    story: []
   }
 
   getTasks() {
@@ -22,41 +25,54 @@ class Home extends Component {
     .then(gallery => this.setState({gallery}))
   }
 
+  getStory() {
+    storyService.getStories()
+    .then(story => this.setState({story}))
+  }
+
   componentDidMount() {
     this.getTasks()
     this.getGallery()
+    this.getStory()
   }
 
   render() {
     const { user } = this.props;
     return (
-      <div>
-        <h1>Home Route</h1>
+      <div className='home'>
 
-        <div>
+        <div className='connected'>
             <h5> You and {user.username} are connected! </h5>
         </div>
 
-        <div>
-        <Link to={'/task'}><h3>To Do!</h3></Link>
-        
         <div id="card-home" className="container-fluid">
- 
-        {this.state.tasks.slice(0,3).map(task => {
+        {this.state.story.slice(0,1).map(story => {
           return (
-            <div key={task._id} className="card-task">
-              {/* <Link to={`/gallery/${task._id}`} {...this.props}> */}
-              <div  className="card text-white bg-warning sm mb-3 mt-3" >
-              <div className="card-header"><h5>{task.name}</h5></div>
-              <div className="card-body">
-                <p className="card-title">{task.description}</p>
-                </div>
-                </div>
-           
+            <div key={story._id} className="card-task">
+            <div className="card-body">
+            <Link to={'/story'}>
+            <h3><DateCountdown dateTo={story.date} callback={() => alert('Hello!')} /> DAYS LEFT to {story.title}! </h3>
+            </Link>
+            </div>  
             </div>
           )
         })}
         </div>
+
+        
+        <div id="card-home" className="container-fluid">
+        {this.state.tasks.slice(0,3).map(task => {
+          return (
+            <div key={task._id} className="card-task">
+              <div  className="card text-white bg-warning sm mb-3 mt-3" >
+              <div className="card-header"><Link to={'/task'}><h5>{task.name}</h5></Link></div>
+              <div className="card-body">
+                <p className="card-title">{task.description}</p>
+                </div>
+                </div>
+            </div>
+          )
+        })}
         </div>
 
 
