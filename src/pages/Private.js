@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withAuth } from '../lib/AuthProvider';
 import coupleService from '../lib/couple-service';
-
+import { Link } from 'react-router-dom';
 
 class Private extends Component {
   state = { email: '', name: ''};
@@ -46,7 +46,13 @@ console.log(this.state.name)
             value={email}
             onChange={this.handleChange}
           />
+          <Link to="/home">
+              {' '}
                    <input type="submit" value="Match!" />
+                   {' '}
+            </Link>
+
+        
         </form>
       </div>
     );

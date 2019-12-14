@@ -4,6 +4,8 @@ import { withAuth } from '../lib/AuthProvider';
 // import  paintingService from '../lib/newPaintingCopy';
 import galleryService from '../lib/gallery-service';
 // import { Route, Redirect } from 'react-router-dom';
+import { FacebookShareButton, WhatsappShareButton } from 'react-share';
+import { FacebookIcon, WhatsappIcon} from 'react-share';
 
 
 class GalleryDetail extends Component {
@@ -62,8 +64,12 @@ class GalleryDetail extends Component {
   //   .catch((error) => console.log(error))
   // }
 
+
+
   render() {
     // const { title, photoUrl} = this.state;
+    const shareUrl = this.state.photoUrl;
+  
     return (
       <div>
         <h1>Your photo</h1>
@@ -75,6 +81,15 @@ class GalleryDetail extends Component {
                  onClick={() => this.deletePhoto(this.props.match.params.id)}>
     	          Delete
       	        </button>
+
+                <FacebookShareButton url={shareUrl} title={this.state.title}>
+                <FacebookIcon size={32} round={true} />
+                </FacebookShareButton>
+
+                <WhatsappShareButton url={shareUrl} title={this.state.title}>
+                <WhatsappIcon size={32} round={true} />
+                </WhatsappShareButton>
+                
    
         <Link to={'/gallery'}> Return Page</Link>
       </div>

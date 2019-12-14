@@ -27,10 +27,17 @@ class Home extends Component {
   }
 
   render() {
+    const { user } = this.props;
     return (
       <div>
         <h1>Home Route</h1>
+
         <div>
+            <h2> You and {user.username} are connected! </h2>
+        </div>
+
+        <div>
+        <Link to={'/task'}><h3>To Do!</h3></Link>
         {this.state.tasks.slice(0,3).map(task => {
           return (
             <div key={task._id} className="gallery">
@@ -43,11 +50,12 @@ class Home extends Component {
         })}
         </div>
         <div>
+        <Link to={'/gallery'}><h3>Gallery</h3></Link>
         {this.state.gallery.slice(0,3).map(gallery => {
           return (
             <div key={gallery._id} className="gallery">
               <Link to={`/gallery/${gallery._id}`} {...this.props}>
-                <h3>{gallery.title}</h3>
+                {/* <h3>{gallery.title}</h3> */}
                  <img src={gallery.photoUrl} alt="photoUrl"/>
               </Link>
             </div>
@@ -55,6 +63,8 @@ class Home extends Component {
         })}
         </div>
        
+        <Link to={'/calendar'}><h3>Check out Calendar</h3></Link>
+
       </div>
     );
   }

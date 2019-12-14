@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Switch} from 'react-router-dom';
 
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 import Signup from './pages/Signup';
 import Login from './pages/Login';
@@ -25,7 +26,7 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar />
-        {/* <h1>Basic React Authentication</h1> */}
+        
 
         <Switch>
           <AnonRoute exact path="/signup" component={Signup} />
@@ -39,6 +40,8 @@ class App extends Component {
           <PrivateRoute exact path="/gallery/:id" component={GalleryDetail} />
           <PrivateRoute exact path="/home" component={Home} />
         </Switch>
+
+        <Footer />
       </div>
     );
   }
