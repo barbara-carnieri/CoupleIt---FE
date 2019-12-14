@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { withAuth } from '../lib/AuthProvider';
 import storyService from '../lib/story-service';
 
+import Footer from '../components/Footer';
+
 class Story extends Component {
   state = {
     date: '',
@@ -50,39 +52,48 @@ class Story extends Component {
       <div>
         <h1>Story Route</h1>
         <form onSubmit={this.handleFormSubmit}>
+        <div className="form-group">
           <label>Date:</label>
-          <input
-            type="text"
+          <input className="form-control"
+            type="date"
             name="date"
             value={date}
             onChange={this.handleChange}
           />
-
+          </div>
+          <div className="form-group">
           <label>Story:</label>
-          <input
+          <input className="form-control"
             type="text"
             name="title"
+            placeholder="Enter story"
             value={title}
             onChange={this.handleChange}
           />
-
+          </div>
+          <div className="form-group">
           <label>Description:</label>
-          <input
+          <input className="form-control"
             type="text"
             name="description"
+            placeholder="Description"
             value={description}
             onChange={this.handleChange}
           />
-
+          </div>
+          <div className="form-group">
           <label>Type:</label>
-          <input
-            type="text"
+          <select class="form-control" id="exampleFormControlSelect1"
             name="type"
             value={type}
-            onChange={this.handleChange}
-          />
-
-          <input type="submit" value="ADD" />
+            onChange={this.handleChange}>
+            <option>Birthday</option>
+            <option>Family</option>
+            <option>Friends</option>
+            <option>Special Anniversary</option>
+          </select>
+          </div>
+          <input type="submit" className="btn btn-outline-success" value="ADD" />
         </form>
 
         {this.state.listOfStories.map(story => {
@@ -93,17 +104,30 @@ class Story extends Component {
                 <h3>Story: {story.title}</h3>
                 <p>{story.description}</p>
                 <p>{story.type}</p>
-                <button 
+                <button className="btn btn-outline-success"
                 onClick={() => this.deleteStory(story._id)}>
     	          Delete
       	        </button>
             </div>
           );
         })}
-        <Link to={'/story'}> Return Page</Link>
+        <Link to={'/home'}> Home </Link>
+
+
+        <Footer />
       </div>
+
     );
+      
   }
 }
 
 export default withAuth(Story);
+
+
+{/* <input className="form-control"
+type="text"
+name="type"
+value={type}
+onChange={this.handleChange}
+/> */}

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { withAuth } from '../lib/AuthProvider';
 import  paintingService from '../lib/newPaintingCopy';
 import galleryService from '../lib/gallery-service';
+import Footer from '../components/Footer';
 
 
 
@@ -59,23 +60,26 @@ class Gallery extends Component {
       <div>
         <h1>Add your Photo!</h1>
         <form onSubmit={this.handleFormSubmit} encType="multipart/form-data">
+        <div className="form-group">
           <label>Title:</label>
-          <input
+          <input className="form-control"
             type="text"
             name="title"
+            placeholder="Something about this photo"
             value={title}
             onChange={this.handleChange}
           />
-
+          </div>
+          <div className="form-group">
           <label>Photo:</label>
-          <input
+          <input className="form-control"
             type="file"
             name="photoUrl"
             alt="photo"
             onChange={e => this.fileChange(e)}
           />
-
-          <input type="submit" value="ADD" />
+        </div>
+          <input type="submit" className="btn btn-outline-success" value="ADD" />
         </form>
 
         {this.state.listOfGallery.map(gallery => {
@@ -90,8 +94,9 @@ class Gallery extends Component {
         })}
 
 
-        {/* <p>Already have account?</p> */}
         <Link to={'/home'}> Home Page</Link>
+
+        <Footer />
       </div>
     );
   }

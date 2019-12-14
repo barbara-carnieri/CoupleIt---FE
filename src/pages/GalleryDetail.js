@@ -6,7 +6,7 @@ import galleryService from '../lib/gallery-service';
 // import { Route, Redirect } from 'react-router-dom';
 import { FacebookShareButton, WhatsappShareButton } from 'react-share';
 import { FacebookIcon, WhatsappIcon} from 'react-share';
-
+import Footer from '../components/Footer';
 
 class GalleryDetail extends Component {
   state = { 
@@ -77,7 +77,7 @@ class GalleryDetail extends Component {
                 <h3>{this.state.title}</h3>
                  <img src={this.state.photoUrl} alt="gallerydetail"/>
 
-                 <button 
+                 <button className="btn btn-outline-success"
                  onClick={() => this.deletePhoto(this.props.match.params.id)}>
     	          Delete
       	        </button>
@@ -92,6 +92,8 @@ class GalleryDetail extends Component {
                 
    
         <Link to={'/gallery'}> Return Page</Link>
+
+        <Footer />
       </div>
     );
   }

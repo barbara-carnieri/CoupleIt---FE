@@ -1,46 +1,60 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
+import profileService from '../lib/user-service'
+import { Link } from 'react-router-dom';
+import { withAuth } from '../lib/AuthProvider';
+import Footer from '../components/Footer';
+
 
 class Profile extends Component {
   state= {
-    username: '',
-    email: '',
-    photoUrl: '',
-    coupleId: ''
+    // username: '',
+    // email: '',
+    // photoUrl: '',
+    // coupleId: '',
+    // id: ''
+    user: {}
   };
 
 
-  // getProfile = id => {
-  //   axios
-  //     .get(`http://localhost:5000/auth/profile/${id}`)
-  //     .then(apiResponse => {
-  //       const theProfile = apiResponse.data;
-       
-  //       this.setState(theProfile);
-  //     })
-  //     .catch(err => console.log(err));
-  // };
+  getProfile(id) {
+    profileService.getOneById(id).then(
+      theProfile => {
+        this.setState({user: theProfile})
+        // console.log(theProfile)
+        // this.setState({username: theProfile.username,
+        // email: theProfile.email, photoUrl: theProfile.photoUrl, coupleId: theProfile.coupleId, id: theProfile._id})
+        // console.log('RESSS', this.state);
+        
+      }
+    );
+  }
+  componentDidMount() {
+    const { id } = this.props.match.params;
+    this.getProfile(id)
+  
+  }
 
-
-
-  // componentDidMount() {
-  //   const { id } = this.props.match.params;
-  //   this.getProfile(id);
-  // }
 
 
   render() {
+    const { username, email, photoUrl } = this.state.user;
+    
     return (
       <div>
         <h1>Profile Route</h1>
-        <h2>{this.state.username}</h2>
-        <p>{this.state.email}</p>
+        <h2>{username}</h2>
+        <p>{email}</p>
+        <img scr={photoUrl} alt="profilepicture"/>
+      
+        <Link to={`/profile/${this.state.user._id}/edit`} {...this.props} className="btn btn-outline-success"> Edit Profile </Link>
+      
+        <Footer />
       </div>
     );
   }
 }
 
-export default Profile;
+export default withAuth(Profile);
 
 
 

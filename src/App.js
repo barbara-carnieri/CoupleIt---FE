@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { Switch} from 'react-router-dom';
+import './App.css';
 
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+
 
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Private from './pages/Private';
 import Profile from './pages/Profile';
+import ProfileEdit from './pages/ProfileEdit';
 import Task from './pages/Task';
 import Calendar from './pages/Calendar';
 import Story from './pages/Story';
@@ -24,7 +26,7 @@ class App extends Component {
   
   render() {
     return (
-      <div className="App">
+      <div className="App container">
         <Navbar />
         
 
@@ -32,7 +34,8 @@ class App extends Component {
           <AnonRoute exact path="/signup" component={Signup} />
           <AnonRoute exact path="/login" component={Login} />
           <PrivateRoute exact path="/private" component={Private} />
-          <PrivateRoute exact path="/profile" component={Profile} />
+          <PrivateRoute exact path="/profile/:id" component={Profile} />
+          <PrivateRoute exact path="/profile/:id/edit" component={ProfileEdit} />
           <PrivateRoute exact path="/calendar" component={Calendar} />
           <PrivateRoute exact path="/task" component={Task} />
           <PrivateRoute exact path="/story" component={Story} />
@@ -41,7 +44,7 @@ class App extends Component {
           <PrivateRoute exact path="/home" component={Home} />
         </Switch>
 
-        <Footer />
+       
       </div>
     );
   }

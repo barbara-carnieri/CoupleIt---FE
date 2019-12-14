@@ -2,27 +2,30 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withAuth } from '../lib/AuthProvider';
 
+
 class Navbar extends Component {
   render() {
     const { user, logout, isLoggedin } = this.props;
+    console.log(this.props)
     return (
-      <div
-        style={{ borderRadius: '5px', padding: '20px', background: '#686de0' }}>
+      <div>
+        
         {isLoggedin ? (
-          <div>
+          <div className="navbar navbar-dark sticky-top">
+
             <p>username: {user.username}</p>
-            <button onClick={logout}>Logout</button>
+            <button className="btn btn-outline-success my-2 my-sm-0" onClick={logout}>Logout</button>
           </div>
         ) : (
-          <div>
+          <div className="form-inline">
             <Link to="/login">
               {' '}
-              <button>Login</button>{' '}
+              <button className="btn btn-outline-success my-2 my-sm-0 mr-3 pr-3 pl-3" >Login</button>{' '}
             </Link>
             <br />
             <Link to="/signup">
               {' '}
-              <button>Signup</button>{' '}
+              <button className="btn btn-outline-success my-2 my-sm-0">Signup</button>{' '}
             </Link>
           </div>
         )}
@@ -31,4 +34,10 @@ class Navbar extends Component {
   }
 }
 
+
 export default withAuth(Navbar);
+
+{/* <Link className="navbar-brand" to="/home">
+{' '}
+<img src="src/Couple.It..png" width="30" height="30" alt="" />{' '}
+</Link> */}

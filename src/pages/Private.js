@@ -30,25 +30,29 @@ console.log(this.state.name)
       <div>
         <h1>Connect with your Pair!</h1>
         <form onSubmit={this.handleFormSubmit}>
-
+        <div className="form-group">
         <label>Couple name:</label>
-          <input
+          <input className="form-control"
             type="text"
             name="name"
+            placeholder="Your creative couple name!"
             value={name}
             onChange={this.handleChange}
           />
-
-          <label>Your Partner Email:</label>
-          <input
-            type="text"
+          </div>
+        <div className="form-group">
+          <label>Your Partner:</label>
+          <input className="form-control"
+            type="email"
             name="email"
+            placeholder="Email"
             value={email}
             onChange={this.handleChange}
           />
+          </div>
           <Link to="/home">
               {' '}
-                   <input type="submit" value="Match!" />
+                   <input type="submit" className="btn btn-outline-success" value="Match!" />
                    {' '}
             </Link>
 

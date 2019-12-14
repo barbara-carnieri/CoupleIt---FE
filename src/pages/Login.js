@@ -22,23 +22,27 @@ class Login extends Component {
       <div>
         <h1>Login</h1>
         <form onSubmit={this.handleFormSubmit}>
+        <div className="form-group">
           <label>Email:</label>
-          <input
-            type="text"
+          <input className="form-control"
+            type="email"
+            placeholder="Enter email"
             name="email"
             value={email}
             onChange={this.handleChange}
           />
-
+          </div>
+          <div className="form-group">
           <label>Password:</label>
-          <input
+          <input className="form-control"
             type="password"
+            placeholder="Password"
             name="password"
             value={password}
             onChange={this.handleChange}
           />
-
-          <input type="submit" value="Login" />
+          </div>
+          <input type="submit" className="btn btn-outline-success" value="Login" />
         </form>
       </div>
     );

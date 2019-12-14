@@ -19,17 +19,6 @@ import axios from 'axios';
     .catch( err => console.log(err))
 }
 
-  // getAll() {
-  //   return this.example
-  //             .get()
-  //             .then(({ data }) => data);
-  // }
-
-  // getOneById(id) {
-  //   return this.example
-  //             .get(`/${id}`)
-  //             .then(({ data }) => data);
-  // }
 }
 
 const coupleService = new CoupleService();
