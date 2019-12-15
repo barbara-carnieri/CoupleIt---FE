@@ -16,7 +16,7 @@ class Navbar extends Component {
         {' '}
         <img src={require("../images/Couple.It..png")} width="30" height="30" alt="" />{' '}
         </Link>
-            <p className="navbar-item pt-3 font-weight-bold"> {user.username}</p>
+            {/* <p className="navbar-item pt-3 font-weight-bold"> {user.username}</p> */}
             <button className="btn btn-outline-success my-2 my-sm-0" onClick={logout}>Logout</button>
           </div>
         ) : (

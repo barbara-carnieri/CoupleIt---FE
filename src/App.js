@@ -16,6 +16,7 @@ import Story from './pages/Story';
 import Gallery from './pages/Gallery';
 import Home from './pages/Home';
 import GalleryDetail from './pages/GalleryDetail';
+import Landing from './pages/Landing';
 
 
 import AnonRoute from './components/AnonRoute';
@@ -28,9 +29,9 @@ class App extends Component {
     return (
       <div className="App App-background">
         <Navbar />
-        
 
         <Switch>
+        <AnonRoute exact path="/" component={Landing} />
           <AnonRoute exact path="/signup" component={Signup} />
           <AnonRoute exact path="/login" component={Login} />
           <PrivateRoute exact path="/private" component={Private} />

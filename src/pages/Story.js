@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { withAuth } from '../lib/AuthProvider';
 import storyService from '../lib/story-service';
 
@@ -17,10 +17,10 @@ class Story extends Component {
   }
  
   componentDidMount() {
-    this.getStories()
+    this.fetchStories()
   }
 
-  getStories() {
+  fetchStories(){
     storyService.getStories()
     .then(listOfStories => this.setState({listOfStories}))
   }
@@ -32,7 +32,7 @@ class Story extends Component {
     // const { coupleId } = this.props; 
     //  console.log('Gallery -> form submit', { title, photoUrl });
     storyService.createStory({ date, title, description, type }); 
-    this.getStories()
+    this.fetchStories()
   };
 
 
@@ -45,6 +45,7 @@ class Story extends Component {
   deleteStory(id) {
     storyService.getOneDelete(id)
     .then( () => this.props.history.push('/story')) // causes Router URL change
+    .then(() => this.fetchStories())
     .catch( (err) => console.log(err));
   }
 
@@ -87,6 +88,7 @@ class Story extends Component {
           </div>
           <div className="form-group">
           <label htmlFor="exampleFormControlSelect1">Type:</label>
+          <div className="d-flex">
           <select className="form-control" id="exampleFormControlSelect1"
             name="type"
             value={type}
@@ -96,10 +98,11 @@ class Story extends Component {
             <option>Friends</option>
             <option>Special Anniversary</option>
           </select>
-          </div>
-          <button type="submit" className="btn btn-success" value="ADD">
-          <i class="material-icons">add_circle</i>
+          <button type="submit" className="btn btn-success pb-0" value="ADD">
+          <i className="material-icons">add_circle</i>
           </button>
+          </div>
+          </div>
         </form>
 
         
@@ -108,19 +111,17 @@ class Story extends Component {
         
           return (
             <div key={story._id} className="story">
-            <h3><DateCountdown dateTo={story.date} /> </h3>
-               <h3>{story.title} {story.date}</h3>
+            <h6><DateCountdown dateTo={story.date} /> </h6>
+               <h1><span className="badge badge-info">{story.title} {story.date}</span></h1>
                 {/* <h3>Story: {story.title}</h3> */}
-                <p>{story.type}</p>
-                <button className="btn btn-success"
-                onClick={() => this.deleteStory(story._id)}>
-    	          <i class="material-icons ">delete_forever</i>
-      	        </button>
-                
+                <div className="d-flex justify-content-between">
+                <h4 className="pl-2">{story.type}</h4>
+    	          <i onClick={() => this.deleteStory(story._id)} className="material-icons ">delete_forever</i>
+                </div>
             </div>
           );
         })}
-        <Link to={'/home'}> Home </Link>
+        {/* <Link to={'/home'}> Home </Link> */}
 
 
         <Footer />

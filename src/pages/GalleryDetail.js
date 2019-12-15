@@ -76,7 +76,7 @@ class GalleryDetail extends Component {
         <div className="row">
         <div className="col-md-6">
         {/* <div id="card-gallerydetail" > */}
-                 <img className="img-fluid" src={this.state.photoUrl} alt="gallerydetail"/>
+                 <img className="img-fluid img-thumbnail" src={this.state.photoUrl} alt="gallerydetail"/>
             
                 <div className="carousel-caption d-flex justify-content-end align-items-bottom p-0 m-0 ">
                 <h4 className="pr-5">{this.state.title}</h4>

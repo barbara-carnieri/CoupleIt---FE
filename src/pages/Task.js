@@ -12,7 +12,7 @@ class Task extends Component {
   }
 
   componentDidMount() { 
-    this.fetchTask()
+    this.fetchTask() 
   }
 
   fetchTask() {

@@ -1,14 +1,9 @@
-/* .footer {
-  display: flex;
-  flex-direction: row;
-  
-} */
 
 body {
   margin: 20px;
   padding: 50px 10px;
-  background-image: url(./images/backlogo.png);
-  /* background-color: orange; */
+  /* background-image: url(./images/backlogo.png); */
+  background-color: rgb(237,127,97);
   height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -16,6 +11,51 @@ body {
 
 h1 {
   text-align: center;
+}
+
+h6 {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.profile {
+  text-align: center;
+}
+
+#container-gallery{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  flex-direction: row;
+  /* width: 30%; */
+  max-height: 50vh;
+  padding: 3px;
+  margin-left: 6px;
+}
+
+#gallery-item {
+  margin: 2px;
+  width: 26vw;
+  height: 26vw;
+}
+
+.navbar-brand {
+  padding-left: 10px;
+}
+
+.navbar-brand img {
+  height: 40px;
+  width: 40px;;
+}
+
+.btn-success {
+  background-color: rgb(240, 207, 24);
+  border: none;
+}
+
+.gallery-item {
+  /* height: 10px; */
 }
 
 #navbarmain {
@@ -36,6 +76,7 @@ h1 {
 #taskcard {
   width: 85vw;
   height: 6rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 6px 6px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 
@@ -53,8 +94,9 @@ h1 {
 .card {
   width: 25vw;
   height: 10rem;
-  margin: 0 2px;
+  margin: 2px;
   padding: 0;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 6px 6px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 .story{
@@ -82,7 +124,7 @@ h1 {
 }
 
 .connected{
-  padding: 60px 0 10px 10px;
+  padding: 30px 0 10px 10px;
   text-align: center;
 }
 

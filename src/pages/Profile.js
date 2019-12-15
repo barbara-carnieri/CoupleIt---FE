@@ -40,12 +40,12 @@ class Profile extends Component {
     const { username, email, photoUrl } = this.state.user;
     
     return (
-      <div>
+      <div className="profile">
         <h1>My Profile</h1>
         <h2>{username}</h2>
         <p>{email}</p>
         <img scr={photoUrl} alt="profilepicture"/>
-      
+      <br/>
         <Link to={`/profile/${this.state.user._id}/edit`} {...this.props} className="btn btn-success"> Edit Profile </Link>
       
         <Footer />

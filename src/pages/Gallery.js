@@ -31,7 +31,8 @@ class Gallery extends Component {
     // const { coupleId } = this.props; 
     //  console.log('Gallery -> form submit', { title, photoUrl });
     galleryService.createGallery({ title, photoUrl }); 
-    this.fetchGallery()
+    this.fetchGallery();
+    this.setState({title: '', photoUrl: ''});
   };
 
   handleChange = event => {
@@ -68,39 +69,35 @@ class Gallery extends Component {
           </div>
           <div className="form-group">
           <label>Photo:</label>
+          <div className="d-flex">
           <input className="form-control"
             type="file"
             name="photoUrl"
             alt="photo"
             onChange={e => this.fileChange(e)}
           />
-        </div>
         <button type="submit" className="btn btn-success" value="ADD">
-          <i class="material-icons">add_circle</i>
+          <i className="material-icons">add_circle</i>
           </button>
+        </div>
+        </div>
         </form>
 
-        <div className="container">
+        {/* <div id="container-gallery" className="container-fluid"> */}
         <div className="row">
-        
-        <div className="d-flex flex-wrap">
+
+        {/* <div className="d-flex flex-wrap h-60"> */}
         {this.state.listOfGallery.map(gallery => {
           return (
-            <div key={gallery._id} className="gallery">
-            <div className="col-md-6 pt-2">
-              <Link to={`/gallery/${gallery._id}`} {...this.props}>
-                 <img className="rounded img-fluid" src={gallery.photoUrl} alt="photoUrl"/>
-                 <div className="carousel-caption align-items-end">
-                <h5>{gallery.title}</h5>
-                </div>
+            <div key={gallery._id} id="container-gallery" className="gallery">
+              <Link className="d-block mb-2 h-40" to={`/gallery/${gallery._id}`} {...this.props}>
+                 <img id="gallery-item" className="rounded img-fluid img-thumbnail" src={gallery.photoUrl} alt="photoUrl"/>
+                <h5 className="carousel-caption">{gallery.title}</h5>
               </Link>
-              </div>
               </div>
           );
         })}
     
-        </div>
-        </div>
         </div>
 
         {/* <Link to={'/home'}> Home Page</Link> */}

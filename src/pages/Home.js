@@ -38,11 +38,12 @@ class Home extends Component {
 
   render() {
     const { user } = this.props;
+    console.log(this.props)
     return (
       <div className='home'>
 
         <div className='connected'>
-            <h5> You and {user.username} are connected! </h5>
+            <h5>{user.username}, you are connected with your partner! </h5>
         </div>
 
         <div id="story-home" className="container-fluid">
@@ -51,7 +52,7 @@ class Home extends Component {
             <div key={story._id} className="card-task">
             <div className="card-body">
             <Link to={'/story'}>
-            <h5><DateCountdown dateTo={story.date} /> DAYS LEFT to {story.title}! </h5>
+            <h5><DateCountdown dateTo={story.date} /> to {story.title}! </h5>
             </Link>
             </div>  
             </div>
@@ -77,7 +78,7 @@ class Home extends Component {
 
 
         <div>
-        <Link to={'/gallery'}><h3>Gallery</h3></Link>
+        <Link to={'/gallery'}><h1 className="d-flex justify-content-center badge badge-info"> Gallery</h1></Link>
         {/* <div className="card-deck"> */}
         <div id="carouselExampleSlidesOnly" className="carousel slide" data-ride="carousel">
         {this.state.gallery.slice(0,3).map(gallery => {
