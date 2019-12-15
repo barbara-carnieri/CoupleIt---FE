@@ -75,7 +75,7 @@ class Signup extends Component {
             onChange={e => this.fileChange(e)}
           />
           </div>
-          <input type="submit" className="btn btn-outline-success" value="Signup" />
+          <input type="submit" className="btn btn-success" value="Signup" />
         </form>
 
         <p>Already have account? <Link to={'/login'}> Login</Link></p>

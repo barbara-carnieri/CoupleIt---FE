@@ -20,12 +20,12 @@ class Navbar extends Component {
             <button className="btn btn-outline-success my-2 my-sm-0" onClick={logout}>Logout</button>
           </div>
         ) : (
-          <div className="form-inline">
+          <div id="navbarmain" className="navbar navbar-dark fixed-top">
             <Link to="/login">
               {' '}
               <button className="btn btn-outline-success my-2 my-sm-0 mr-3 pr-3 pl-3" >Login</button>{' '}
             </Link>
-            <br />
+
             <Link to="/signup">
               {' '}
               <button className="btn btn-outline-success my-2 my-sm-0">Signup</button>{' '}

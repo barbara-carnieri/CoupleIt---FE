@@ -45,13 +45,13 @@ class Home extends Component {
             <h5> You and {user.username} are connected! </h5>
         </div>
 
-        <div id="card-home" className="container-fluid">
+        <div id="story-home" className="container-fluid">
         {this.state.story.slice(0,1).map(story => {
           return (
             <div key={story._id} className="card-task">
             <div className="card-body">
             <Link to={'/story'}>
-            <h3><DateCountdown dateTo={story.date} callback={() => alert('Hello!')} /> DAYS LEFT to {story.title}! </h3>
+            <h5><DateCountdown dateTo={story.date} /> DAYS LEFT to {story.title}! </h5>
             </Link>
             </div>  
             </div>
@@ -94,7 +94,7 @@ class Home extends Component {
         </div>
         </div>
        
-        <Link to={'/calendar'}><h3>Check out Calendar</h3></Link>
+        {/* <Link to={'/calendar'}><h3>Check out Calendar</h3></Link> */}
 
         <Footer />
       </div>

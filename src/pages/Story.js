@@ -54,7 +54,7 @@ class Story extends Component {
 
     return (
       <div>
-        <h1>Story Route</h1>
+        <h1>Countdown Story</h1>
         <form onSubmit={this.handleFormSubmit}>
         <div className="form-group">
           <label>Date:</label>
@@ -97,22 +97,26 @@ class Story extends Component {
             <option>Special Anniversary</option>
           </select>
           </div>
-          <input type="submit" className="btn btn-outline-success" value="ADD" />
+          <button type="submit" className="btn btn-success" value="ADD">
+          <i class="material-icons">add_circle</i>
+          </button>
         </form>
+
+        
 
         {this.state.listOfStories.map(story => {
         
           return (
             <div key={story._id} className="story">
-            <h3><DateCountdown dateTo={story.date} callback={() => alert('Hello!')} /> DAYS LEFT! </h3>
-               <h3>Date: {story.date}</h3>
-                <h3>Story: {story.title}</h3>
+            <h3><DateCountdown dateTo={story.date} /> </h3>
+               <h3>{story.title} {story.date}</h3>
+                {/* <h3>Story: {story.title}</h3> */}
                 <p>{story.type}</p>
-                {/* <p>{countdown} days left!!!</p> */}
-                <button className="btn btn-outline-success"
+                <button className="btn btn-success"
                 onClick={() => this.deleteStory(story._id)}>
-    	          Delete
+    	          <i class="material-icons ">delete_forever</i>
       	        </button>
+                
             </div>
           );
         })}

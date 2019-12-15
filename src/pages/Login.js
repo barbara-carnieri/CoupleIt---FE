@@ -42,7 +42,7 @@ class Login extends Component {
             onChange={this.handleChange}
           />
           </div>
-          <input type="submit" className="btn btn-outline-success" value="Login" />
+          <input type="submit" className="btn btn-success" value="Login" />
         </form>
       </div>
     );

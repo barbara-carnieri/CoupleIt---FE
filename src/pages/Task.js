@@ -11,11 +11,13 @@ class Task extends Component {
     listOfTasks: []
   }
 
-  componentDidMount() {
+  componentDidMount() { 
+    this.fetchTask()
+  }
+
+  fetchTask() {
     taskService.getTasks()
     .then(listOfTasks => this.setState({listOfTasks}))
-    
-    
   }
 
   handleFormSubmit = event => {
@@ -24,8 +26,7 @@ class Task extends Component {
     // const { coupleId } = this.props; 
     //  console.log('Gallery -> form submit', { title, photoUrl });
     taskService.createTask({ name, description});
- 
-
+    this.fetchTask()
   };
 
 
@@ -34,11 +35,20 @@ class Task extends Component {
     this.setState({ [name]: value });
   };
 
+
+  deleteTask(id) {
+    taskService.getOneDelete(id)
+    .then( () => this.props.history.push('/task'))
+    .then(() => this.fetchTask()) // causes Router URL change
+    .catch( (err) => console.log(err));
+  }
+
+
   render() {
     const { name, description} = this.state;
     return (
       <div>
-        <h1>Task Route</h1>
+        <h1>To Do's</h1>
         <form onSubmit={this.handleFormSubmit}>
         <div className="form-group">
           <label>Task:</label>
@@ -61,15 +71,20 @@ class Task extends Component {
           </div>
 
 
-          <input type="submit" className="btn btn-outline-success" value="ADD" />
+          <button type="submit" className="btn btn-success" value="ADD">
+          <i class="material-icons">add_circle</i>
+          </button>
         </form>
         {this.state.listOfTasks.map(task => {
           return (
             <div key={task._id} className="gallery card-deck">
-              {/* <Link to={`/gallery/${task._id}`} {...this.props}> */}
-              <div className="card text-white bg-warning mb-3 mt-3" >
-              <div className="card-header"><h3>{task.name}</h3></div>
-              <div className="card-body">
+              <div id="taskcard" className="card text-white bg-warning mb-3 mt-3" >
+              <div className="card-header"><h5>{task.name}</h5></div>
+              <div className="d-flex flex-row-reverse justify-content-between card-body">
+                <button className="btn btn-success btn-sm pb-4"
+                onClick={() => this.deleteTask(task._id)}>
+    	          <i class="material-icons">delete_forever</i>
+      	        </button>
                 <p className="card-title">{task.description}</p>
                 </div>
                 </div>

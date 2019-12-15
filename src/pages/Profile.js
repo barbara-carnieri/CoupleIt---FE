@@ -41,12 +41,12 @@ class Profile extends Component {
     
     return (
       <div>
-        <h1>Profile Route</h1>
+        <h1>My Profile</h1>
         <h2>{username}</h2>
         <p>{email}</p>
         <img scr={photoUrl} alt="profilepicture"/>
       
-        <Link to={`/profile/${this.state.user._id}/edit`} {...this.props} className="btn btn-outline-success"> Edit Profile </Link>
+        <Link to={`/profile/${this.state.user._id}/edit`} {...this.props} className="btn btn-success"> Edit Profile </Link>
       
         <Footer />
       </div>

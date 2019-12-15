@@ -13,11 +13,16 @@ class Gallery extends Component {
   };
 
   componentDidMount() {
-    galleryService.getCoupleGallery().then(
+    this.fetchGallery()
+  }
+
+  fetchGallery() {
+    galleryService.getCoupleGallery()
+    .then(
       listOfGallery => {
         this.setState({listOfGallery})
       }
-    );
+    )
   }
 
   handleFormSubmit = event => {
@@ -26,7 +31,7 @@ class Gallery extends Component {
     // const { coupleId } = this.props; 
     //  console.log('Gallery -> form submit', { title, photoUrl });
     galleryService.createGallery({ title, photoUrl }); 
-
+    this.fetchGallery()
   };
 
   handleChange = event => {
@@ -70,24 +75,35 @@ class Gallery extends Component {
             onChange={e => this.fileChange(e)}
           />
         </div>
-          <input type="submit" className="btn btn-outline-success" value="ADD" />
+        <button type="submit" className="btn btn-success" value="ADD">
+          <i class="material-icons">add_circle</i>
+          </button>
         </form>
-        <div className="card-deck">
+
+        <div className="container">
+        <div className="row">
+        
+        <div className="d-flex flex-wrap">
         {this.state.listOfGallery.map(gallery => {
           return (
-            <div key={gallery._id} className="card gallery">
+            <div key={gallery._id} className="gallery">
+            <div className="col-md-6 pt-2">
               <Link to={`/gallery/${gallery._id}`} {...this.props}>
-                <h5 className="card-title">{gallery.title}</h5>
-                 <img src={gallery.photoUrl} className="card-img-top" alt="photoUrl"/>
+                 <img className="rounded img-fluid" src={gallery.photoUrl} alt="photoUrl"/>
+                 <div className="carousel-caption align-items-end">
+                <h5>{gallery.title}</h5>
+                </div>
               </Link>
               </div>
-            
+              </div>
           );
         })}
+    
+        </div>
+        </div>
         </div>
 
-
-        <Link to={'/home'}> Home Page</Link>
+        {/* <Link to={'/home'}> Home Page</Link> */}
 
         <Footer />
       </div>
@@ -96,14 +112,3 @@ class Gallery extends Component {
 }
 
 export default withAuth(Gallery);
-
-// {this.state.listOfGallery.map(gallery => {
-//   return (
-//     <div key={gallery._id} className="gallery">
-//       <Link to={`/gallery/${gallery._id}`}>
-//         <h3>{gallery.title}</h3>
-//         {/* <img>{gallery.photoUrl}</p> */}
-//       </Link>
-//     </div>
-//   );
-// })}

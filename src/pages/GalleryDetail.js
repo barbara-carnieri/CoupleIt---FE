@@ -72,26 +72,30 @@ class GalleryDetail extends Component {
   
     return (
       <div>
-        <h1>Your photo</h1>
-      
-                <h3>{this.state.title}</h3>
-                 <img src={this.state.photoUrl} alt="gallerydetail"/>
-
-                 <button className="btn btn-outline-success"
-                 onClick={() => this.deletePhoto(this.props.match.params.id)}>
-    	          Delete
-      	        </button>
-
+        <div id="card-gallerydetail" className="container">
+        <div className="row">
+        <div className="col-md-6">
+        {/* <div id="card-gallerydetail" > */}
+                 <img className="img-fluid" src={this.state.photoUrl} alt="gallerydetail"/>
+            
+                <div className="carousel-caption d-flex justify-content-end align-items-bottom p-0 m-0 ">
+                <h4 className="pr-5">{this.state.title}</h4>
                 <FacebookShareButton url={shareUrl} title={this.state.title}>
-                <FacebookIcon size={32} round={true} />
+                <FacebookIcon size={36} round={true} />
                 </FacebookShareButton>
-
                 <WhatsappShareButton url={shareUrl} title={this.state.title}>
-                <WhatsappIcon size={32} round={true} />
+                <WhatsappIcon size={36} round={true} />
                 </WhatsappShareButton>
-                
-   
-        <Link to={'/gallery'}> Return Page</Link>
+                 
+    	          <i className="material-icons pt-1" onClick={() => this.deletePhoto(this.props.match.params.id)}>delete_forever</i>
+      	       
+                </div>
+                </div>
+                </div>
+                </div>
+        <Link to={'/gallery'}>
+        <i class="material-icons">keyboard_return</i>
+        </Link>
 
         <Footer />
       </div>
@@ -102,13 +106,4 @@ class GalleryDetail extends Component {
 
 export default withAuth(GalleryDetail);
 
-// {this.state.listOfGallery.map(gallery => {
-//   return (
-//     <div key={gallery._id} className="gallery">
-//       <Link to={`/gallery/${gallery._id}`}>
-//         <h3>{gallery.title}</h3>
-//         {/* <img>{gallery.photoUrl}</p> */}
-//       </Link>
-//     </div>
-//   );
-// })}
+

@@ -32,7 +32,10 @@ class ProfileEdit extends Component {
   }
 
   render() {
+    console.log(this.state);
+    
     const { username, password, email, photoUrl} = this.state;
+    console.log(username)
     return (
       <div>
         <h1>Update your profile</h1>
@@ -73,7 +76,7 @@ class ProfileEdit extends Component {
             onChange={e => this.fileChange(e)}
           />
         </div>
-          <input type="submit" className="btn btn-outline-success" value="Update" />
+          <input type="submit" className="btn btn-success" value="Update" />
         </form>
 
         <Link to={'/home'}> Back Home</Link>
