@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import profileService from '../lib/user-service'
+import userService from '../lib/user-service'
 import { Link } from 'react-router-dom';
 import { withAuth } from '../lib/AuthProvider';
 import Footer from '../components/Footer';
@@ -17,7 +17,7 @@ class Profile extends Component {
 
 
   getProfile(id) {
-    profileService.getOneById(id).then(
+    userService.getOneById(id).then(
       theProfile => {
         this.setState({user: theProfile})
         // console.log(theProfile)
@@ -46,7 +46,7 @@ class Profile extends Component {
         <p>{email}</p>
         <img scr={photoUrl} alt="profilepicture"/>
       <br/>
-        <Link to={`/profile/${this.state.user._id}/edit`} {...this.props} className="btn btn-success"> Edit Profile </Link>
+        <Link to={`/user/${this.state.user._id}/edit`} {...this.props} className="btn btn-success"> Edit Profile </Link>
       
         <Footer />
       </div>

@@ -32,7 +32,7 @@ class Footer extends Component {
           </div>
           <div className="nav-item nav-link active">
           <Link 
-          to={`profile/${user._id}`}>{' '}<i className="material-icons">person</i>{' '}
+          to={`user/${user._id}`}>{' '}<i className="material-icons">person</i>{' '}
           </Link>
           </div>
           </div>

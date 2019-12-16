@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-  class ProfileService {
+  class UserService {
   constructor() {
-    this.profileService = axios.create({
+    this.userService = axios.create({
       baseURL: 'http://localhost:5000/user',
       withCredentials: true,
     });
@@ -10,7 +10,7 @@ import axios from 'axios';
 
 
   getOneById(id) {
-    return this.profileService
+    return this.userService
               .get(`/${id}`)
               .then(response => response.data);
  
@@ -18,11 +18,17 @@ import axios from 'axios';
 
 
 
-  updateUser(id, user) {
-    return this.profileService
-              .put(`/${id}`, user)
-              .then(response => response.data);
+  // updateUser(id, user) {
+  //   return this.profileService
+  //             .put(`/${id}`, user)
+  //             .then(response => response.data);
  
+  // }
+
+  updateUser = (id, userUpdated ) =>{
+    return this.userService
+    .put(`/${id}/edit`, userUpdated)
+    .then((data)=> data )
   }
   // getOneDelete(id) {
   //   return this.profileService
@@ -34,6 +40,6 @@ import axios from 'axios';
 
 }
 
-const profileService = new ProfileService();
+const userService = new UserService();
 
-export default profileService;
+export default userService;
