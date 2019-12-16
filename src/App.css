@@ -98,6 +98,10 @@ h6 {
   margin: 0;
 }
 
+#story-home h2 {
+  background-color: rgb(237,127,97);
+}
+
 .card {
   width: 25vw;
   height: 10rem;

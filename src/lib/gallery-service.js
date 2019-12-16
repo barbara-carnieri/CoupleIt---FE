@@ -4,7 +4,7 @@ import axios from 'axios';
   constructor() {
     this.galleryService = axios.create({
       // baseURL: 'http://localhost:5000/gallery',
-      baseURL: process.env.REACT_APP_API_URL + '/gallery',
+      baseURL: process.env.REACT_APP_API_URL,
       withCredentials: true,
     });
   }
@@ -12,7 +12,7 @@ import axios from 'axios';
   createGallery = (oneGallery) => {
     const { title, photoUrl } = oneGallery;
     return this.galleryService
-    .post('/', { title, photoUrl })
+    .post('/gallery', { title, photoUrl })
     .then( response => {
         const {newGallery} = response.data;
         return newGallery;
@@ -24,21 +24,21 @@ import axios from 'axios';
 
   getCoupleGallery() {
     return this.galleryService
-      .get('/')
+      .get('/gallery')
       .then(response => response.data);
   }
 
 
   getOneById(id) {
     return this.galleryService
-              .get(`/${id}`)
+              .get(`/gallery/${id}`)
               .then(response => response.data);
  
   }
 
   getOneDelete(id) {
     return this.galleryService
-              .delete(`/${id}`)
+              .delete(`/gallery/${id}`)
               .then(response => response.data)
               .catch( (err) => console.log(err));
   }

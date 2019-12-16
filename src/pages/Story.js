@@ -31,8 +31,8 @@ class Story extends Component {
     console.log(this.state)
     // const { coupleId } = this.props; 
     //  console.log('Gallery -> form submit', { title, photoUrl });
-    storyService.createStory({ date, title, description, type }); 
-    this.fetchStories()
+    storyService.createStory({ date, title, description, type })
+    .then(() => this.fetchStories())
   };
 
 

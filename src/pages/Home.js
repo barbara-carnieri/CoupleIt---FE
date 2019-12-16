@@ -38,7 +38,7 @@ class Home extends Component {
 
   render() {
     const { user } = this.props;
-    console.log(this.props)
+ 
     return (
       <div className='home'>
 
@@ -47,7 +47,7 @@ class Home extends Component {
         </div>
 
         <div id="story-home" className="container-fluid">
-        {this.state.story.slice(0,1).map(story => {
+        {this.state.story.length ? this.state.story.slice(0,1).map(story => {
           return (
             <div key={story._id} className="card-task">
             <div className="card-body">
@@ -57,12 +57,12 @@ class Home extends Component {
             </div>  
             </div>
           )
-        })}
+        }) : <h2>No story yet</h2>}
         </div>
 
         
         <div id="card-home" className="container-fluid">
-        {this.state.tasks.slice(0,3).map(task => {
+        {this.state.tasks.length ? this.state.tasks.slice(0,3).map(task => {
           return (
             <div key={task._id} className="card-task">
               <div  className="card text-white bg-warning sm mb-3 mt-3" >
@@ -73,7 +73,7 @@ class Home extends Component {
                 </div>
             </div>
           )
-        })}
+        }) : <h2>No tasks yet</h2>}
         </div>
 
 
@@ -81,7 +81,7 @@ class Home extends Component {
         <Link to={'/gallery'}><h1 className="d-flex justify-content-center badge badge-info"> Gallery</h1></Link>
         {/* <div className="card-deck"> */}
         <div id="carouselExampleSlidesOnly" className="carousel slide" data-ride="carousel">
-        {this.state.gallery.slice(0,3).map(gallery => {
+        {this.state.gallery.length ? this.state.gallery.slice(0,3).map(gallery => {
           return (
             <div key={gallery._id} className="carousel-inner gallery">
             <div className="carousel-item active">
@@ -91,7 +91,7 @@ class Home extends Component {
               </div>
             </div>
           )
-        })}
+        }) : <h2>No picture yet</h2>}
         </div>
         </div>
        

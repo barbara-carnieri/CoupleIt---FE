@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { withAuth } from '../lib/AuthProvider';
 import  paintingService from '../lib/newPaintingCopy';
 
+
 class Signup extends Component {
   state = { username: '', password: '', email: '', photoUrl: '' };
 

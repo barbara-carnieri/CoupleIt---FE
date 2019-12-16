@@ -23,10 +23,9 @@ class Task extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     const { name, description } = this.state;
-    // const { coupleId } = this.props; 
-    //  console.log('Gallery -> form submit', { title, photoUrl });
-    taskService.createTask({ name, description});
-    this.fetchTask()
+    return taskService.createTask({ name, description})
+    .then(() => this.fetchTask())
+    
   };
 
 
@@ -72,7 +71,7 @@ class Task extends Component {
 
 
           <button type="submit" className="btn btn-success" value="ADD">
-          <i class="material-icons">add_circle</i>
+          <i className="material-icons">add_circle</i>
           </button>
         </form>
         {this.state.listOfTasks.map(task => {
@@ -83,7 +82,7 @@ class Task extends Component {
               <div className="d-flex flex-row-reverse justify-content-between card-body">
                 <button className="btn btn-success btn-sm pb-4"
                 onClick={() => this.deleteTask(task._id)}>
-    	          <i class="material-icons">delete_forever</i>
+    	          <i className="material-icons">delete_forever</i>
       	        </button>
                 <p className="card-title">{task.description}</p>
                 </div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withAuth } from '../lib/AuthProvider';
 import coupleService from '../lib/couple-service';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 class Private extends Component {
   state = { email: '', name: ''};
@@ -9,7 +9,6 @@ class Private extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     const { email, name } = this.state;
-console.log(this.state.name)
     coupleService.createCouple({ email, name }).then(createdCouple => {
       return createdCouple
     }); // props.signup is Provided by withAuth() and Context API
@@ -21,7 +20,9 @@ console.log(this.state.name)
     this.setState({ [name]: value });
   };
 
-
+getRedirect() {
+  return <Redirect to="/home" />
+}
 
 
   render() {
@@ -50,13 +51,8 @@ console.log(this.state.name)
             onChange={this.handleChange}
           />
           </div>
-          <Link to="/home">
-              {' '}
-                   <input type="submit" className="btn btn-outline-success" value="Match!" />
-                   {' '}
-            </Link>
-
-        
+         
+          <button type="submit" className="btn btn-outline-success" onSubmit={this.getRedirect}>Match!</button>
         </form>
       </div>
     );

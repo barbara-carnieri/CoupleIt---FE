@@ -30,9 +30,9 @@ class Gallery extends Component {
     const { title, photoUrl } = this.state;
     // const { coupleId } = this.props; 
     //  console.log('Gallery -> form submit', { title, photoUrl });
-    galleryService.createGallery({ title, photoUrl }); 
-    this.fetchGallery();
-    this.setState({title: '', photoUrl: ''});
+    galleryService.createGallery({ title, photoUrl })
+    .then(() => this.fetchGallery())
+    .then(() => this.setState({title: '', photoUrl: ''}));
   };
 
   handleChange = event => {

@@ -3,8 +3,7 @@ import axios from 'axios';
   class CoupleService {
   constructor() {
     this.coupleService = axios.create({
-      baseURL: process.env.REACT_APP_API_URL + '/couple',
-      
+      baseURL: process.env.REACT_APP_API_URL,
       withCredentials: true,
     });
   }
@@ -12,7 +11,7 @@ import axios from 'axios';
   createCouple = (oneCouple) => {
     const { name, email } = oneCouple;
     return this.coupleService
-    .post('/', { name, email })
+    .post('/couple', { name, email })
     .then( response => {
         const {newCouple} = response.data;
         return newCouple;
