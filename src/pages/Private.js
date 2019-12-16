@@ -52,7 +52,7 @@ getRedirect() {
           />
           </div>
          
-          <button type="submit" className="btn btn-outline-success" onSubmit={this.getRedirect}>Match!</button>
+          <button type="submit" className="btn btn-outline-success" >Match!</button>
         </form>
       </div>
     );
