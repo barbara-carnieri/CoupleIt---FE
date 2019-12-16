@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withAuth } from '../lib/AuthProvider';
 import coupleService from '../lib/couple-service';
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Private extends Component {
   state = { email: '', name: ''};
@@ -19,11 +19,6 @@ class Private extends Component {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
-
-getRedirect() {
-  return <Redirect to="/home" />
-}
-
 
   render() {
     const { email, name } = this.state;
@@ -52,7 +47,7 @@ getRedirect() {
           />
           </div>
          
-          <button type="submit" className="btn btn-outline-success" >Match!</button>
+          <Link to={'/home'} {...this.props} className="btn btn-success" >Match!</Link>
         </form>
       </div>
     );

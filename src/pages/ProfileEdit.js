@@ -3,22 +3,16 @@ import { withAuth } from '../lib/AuthProvider';
 import  paintingService from '../lib/newPaintingCopy';
 import  userService from '../lib/user-service';
 import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
 
 class ProfileEdit extends Component {
   state = {
+    id: this.props.user._id,
     username: this.props.user.username, 
     password: this.props.user.password, 
     email: this.props.user.email, 
-    photoUrl: '' 
+    photoUrl: this.props.user.photoUrl
   };
-
-  getProfile(id) {
-    userService.getOneById(id)
-    .then( theProfile => {
-        this.setState({user: theProfile})       
-      }
-    );
-  }
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -44,10 +38,8 @@ class ProfileEdit extends Component {
   }
 
   render() {
-    // console.log(this.state);
-    const { username, password, email, photoUrl} = this.state;
-    
-    // console.log(username)
+    const { username, password, email, photoUrl, id} = this.state;
+
     return (
       <div>
         <h1>Update your profile</h1>
@@ -84,11 +76,12 @@ class ProfileEdit extends Component {
           <input className="form-control"
             type="file"
             name="photoUrl"
-            value={photoUrl}
+            // value={photoUrl}
             onChange={e => this.fileChange(e)}
           />
         </div>
-          <input type="submit" className="btn btn-success" value="Update" />
+        
+          <Link to={`/user/${id}`} type="submit" className="btn btn-success">Update</Link>
         </form>
 
         <Footer />

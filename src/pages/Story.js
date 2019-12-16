@@ -93,6 +93,7 @@ class Story extends Component {
             name="type"
             value={type}
             onChange={this.handleChange}>
+            <option hidden>Select a type</option>
             <option>Birthday</option>
             <option>Family</option>
             <option>Friends</option>
