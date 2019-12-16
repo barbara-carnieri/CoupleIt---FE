@@ -83,16 +83,14 @@ class Gallery extends Component {
         </div>
         </form>
 
-        {/* <div id="container-gallery" className="container-fluid"> */}
+ 
         <div className="row">
-
-        {/* <div className="d-flex flex-wrap h-60"> */}
         {this.state.listOfGallery.map(gallery => {
           return (
-            <div key={gallery._id} id="container-gallery" className="gallery">
+            <div key={gallery._id} id="container-gallery" className="figure gallery">
               <Link className="d-block mb-2 h-40" to={`/gallery/${gallery._id}`} {...this.props}>
-                 <img id="gallery-item" className="rounded img-fluid img-thumbnail" src={gallery.photoUrl} alt="photoUrl"/>
-                <h5 className="carousel-caption">{gallery.title}</h5>
+                 <img id="gallery-item" className="rounded img-fluid img-thumbnail figure-img" src={gallery.photoUrl} alt="photoUrl"/>
+                <h5 className="figure-caption">{gallery.title}</h5>
               </Link>
               </div>
           );

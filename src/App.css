@@ -38,6 +38,7 @@ h6 {
   margin: 2px;
   width: 26vw;
   height: 26vw;
+  position: relative;
 }
 
 .navbar-brand {
@@ -84,6 +85,12 @@ h6 {
   margin-top: 90px;
 }
 
+.figure-caption {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+}
+
 #story-home{
   background-color: white;
   border-radius: 5px;
@@ -103,6 +110,7 @@ h6 {
   background-color: whitesmoke;
   border-radius: 7px;
   margin-top: 10px;
+  box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
 
 }
 
@@ -152,13 +160,6 @@ h6 {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-background {
-  /* background-image: url(./images/Couple.It..png);
-  height: 900px;
-  width: 100%; */
- 
 }
 
 .App-link {

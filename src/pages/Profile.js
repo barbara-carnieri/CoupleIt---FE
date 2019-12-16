@@ -17,8 +17,8 @@ class Profile extends Component {
 
 
   getProfile(id) {
-    userService.getOneById(id).then(
-      theProfile => {
+    userService.getOneById(id)
+    .then( theProfile => {
         this.setState({user: theProfile})
         // console.log(theProfile)
         // this.setState({username: theProfile.username,

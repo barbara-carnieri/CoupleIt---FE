@@ -3,7 +3,8 @@ import axios from 'axios';
   class CoupleService {
   constructor() {
     this.coupleService = axios.create({
-      baseURL: 'http://localhost:5000/couple',
+      baseURL: process.env.REACT_APP_API_URL + '/couple',
+      
       withCredentials: true,
     });
   }

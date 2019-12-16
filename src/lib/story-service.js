@@ -3,7 +3,8 @@ import axios from 'axios';
   class StoryService {
   constructor() {
     this.storyService = axios.create({
-      baseURL: 'http://localhost:5000/story',
+      // baseURL: 'http://localhost:5000/story',
+      baseURL: process.env.REACT_APP_API_URL + '/story',
       withCredentials: true,
     });
   }

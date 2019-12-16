@@ -1,12 +1,24 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { withAuth } from '../lib/AuthProvider';
 import  paintingService from '../lib/newPaintingCopy';
 import  userService from '../lib/user-service';
 import Footer from '../components/Footer';
 
 class ProfileEdit extends Component {
-  state = { username: this.props.user.username, password: this.props.user.password, email: this.props.user.email, photoUrl: this.props.user.photoUrl };
+  state = {
+    username: this.props.user.username, 
+    password: this.props.user.password, 
+    email: this.props.user.email, 
+    photoUrl: '' 
+  };
+
+  getProfile(id) {
+    userService.getOneById(id)
+    .then( theProfile => {
+        this.setState({user: theProfile})       
+      }
+    );
+  }
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -32,10 +44,10 @@ class ProfileEdit extends Component {
   }
 
   render() {
-    console.log(this.state);
-    
+    // console.log(this.state);
     const { username, password, email, photoUrl} = this.state;
-    console.log(username)
+    
+    // console.log(username)
     return (
       <div>
         <h1>Update your profile</h1>
@@ -78,8 +90,6 @@ class ProfileEdit extends Component {
         </div>
           <input type="submit" className="btn btn-success" value="Update" />
         </form>
-
-        <Link to={'/home'}> Back Home</Link>
 
         <Footer />
       </div>

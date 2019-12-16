@@ -3,7 +3,8 @@ import axios from 'axios';
   class GalleryService {
   constructor() {
     this.galleryService = axios.create({
-      baseURL: 'http://localhost:5000/gallery',
+      // baseURL: 'http://localhost:5000/gallery',
+      baseURL: process.env.REACT_APP_API_URL + '/gallery',
       withCredentials: true,
     });
   }

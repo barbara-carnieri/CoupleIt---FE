@@ -111,7 +111,7 @@ class Story extends Component {
         
           return (
             <div key={story._id} className="story">
-            <h6><DateCountdown dateTo={story.date} /> </h6>
+            <h6><DateCountdown dateTo={story.date}/> </h6>
                <h1><span className="badge badge-info">{story.title} {story.date}</span></h1>
                 {/* <h3>Story: {story.title}</h3> */}
                 <div className="d-flex justify-content-between">

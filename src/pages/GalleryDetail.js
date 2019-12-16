@@ -94,7 +94,7 @@ class GalleryDetail extends Component {
                 </div>
                 </div>
         <Link to={'/gallery'}>
-        <i class="material-icons">keyboard_return</i>
+        <i className="material-icons">keyboard_return</i>
         </Link>
 
         <Footer />
