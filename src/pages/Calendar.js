@@ -15,7 +15,7 @@ class Calendar extends Component {
   render() {
     return (
       <div className="calendar">
-        <ScheduleComponent currentView="Day">
+        <ScheduleComponent currentView="Month">
           <Inject services={[Day, Week, WorkWeek, Month, Agenda]} />
         </ScheduleComponent>
         <Footer />

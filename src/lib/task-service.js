@@ -10,11 +10,10 @@ import axios from 'axios';
   }
 
   createTask = (oneTask) => {
-    const { name, description } = oneTask;
+    const { name, description, completed } = oneTask;
     return this.taskService
-    .post('/', { name, description })
+    .post('/', { name, description, completed })
     .then( response => {
-      console.log(response.config.data)
         const {newTask} = response.config.data;
         return newTask;
     })
@@ -42,6 +41,13 @@ import axios from 'axios';
               .catch( (err) => console.log(err));
   }
 
+  getOneUpdate(id, oneTask) {
+    const { name, description, completed } = oneTask;
+    return this.taskService
+              .put(`/${id}`, {name, description, completed})
+              .then(response => response.data)
+              .catch( (err) => console.log(err));
+  }
 }
 
 const taskService = new TaskService();

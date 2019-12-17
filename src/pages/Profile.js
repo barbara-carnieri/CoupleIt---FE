@@ -33,7 +33,7 @@ class Profile extends Component {
         <h1>My Profile</h1>
         <h2>{username}</h2>
         <p>{email}</p>
-        <img src={photoUrl} alt="profilepicture" className="rounded img-fluid img-thumbnail figure-img"/>
+        {/* <img src={photoUrl} alt="profilepicture" className="rounded img-fluid img-thumbnail figure-img"/> */}
       <br/>
         <Link to={`/user/${this.state.user._id}/edit`} className="btn btn-success"> Edit Profile </Link>
       

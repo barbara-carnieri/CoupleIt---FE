@@ -134,6 +134,12 @@ h6 {
   height: 50%;
 }
 
+.card-completed{
+  height: 50%;
+  text-decoration: line-through;
+  color: rgb(10, 95, 28);
+}
+
 #card-body-home{
   height: 10%;
 }

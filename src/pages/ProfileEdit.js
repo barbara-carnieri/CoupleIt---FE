@@ -71,7 +71,7 @@ class ProfileEdit extends Component {
             onChange={this.handleChange}
           />
           </div>
-         <div className="form-group">
+         {/* <div className="form-group">
           <label>Profile Photo:</label>
           <input className="form-control"
             type="file"
@@ -79,7 +79,7 @@ class ProfileEdit extends Component {
             // value={photoUrl}
             onChange={e => this.fileChange(e)}
           />
-        </div>
+        </div> */}
         
           <Link to={`/user/${id}`} type="submit" className="btn btn-success">Update</Link>
         </form>

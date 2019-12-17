@@ -8,7 +8,8 @@ class Task extends Component {
   state = {
     name: '',
     description: '',
-    listOfTasks: []
+    listOfTasks: [],
+    completed: false
   }
 
   componentDidMount() { 
@@ -22,9 +23,11 @@ class Task extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    const { name, description } = this.state;
-    return taskService.createTask({ name, description})
+    const { name, description, completed } = this.state;
+    return taskService.createTask({ name, description, completed})
     .then(() => this.fetchTask())
+    .then(() => this.setState({name: '',
+    description: ''}));
     
   };
 
@@ -37,14 +40,21 @@ class Task extends Component {
 
   deleteTask(id) {
     taskService.getOneDelete(id)
-    .then( () => this.props.history.push('/task'))
+    .then(() => this.props.history.push('/task'))
     .then(() => this.fetchTask()) // causes Router URL change
     .catch( (err) => console.log(err));
   }
 
+  crossTask(task) {
+    const { name, description } = task
+    const completed = true
+    taskService.getOneUpdate(task._id, {name, description, completed})
+    .then(() => this.fetchTask()) // causes Router URL change
+    .catch( (err) => console.log(err));
+  }
 
   render() {
-    const { name, description} = this.state;
+    const { name, description } = this.state;
     return (
       <div>
         <h1>To Do's</h1>
@@ -81,13 +91,17 @@ class Task extends Component {
           return (
             <div key={task._id} className="gallery card-deck">
               <div id="taskcard" className="card text-white bg-warning mb-3 mt-3" >
-              <div className="card-header"><h5>{task.name}</h5></div>
+              <div className={task.completed ? "card-completed" : "card-header"}><h5>{task.name}</h5></div>
               <div className="d-flex flex-row-reverse justify-content-between card-body">
+                <button className="btn btn-success btn-sm pb-4"
+                onClick={() => this.crossTask(task)}>
+    	          <i className="material-icons">done</i>
+      	        </button>
                 <button className="btn btn-success btn-sm pb-4"
                 onClick={() => this.deleteTask(task._id)}>
     	          <i className="material-icons">delete_forever</i>
       	        </button>
-                <p className="card-title">{task.description}</p>
+                <p className={task.completed ? "card-completed" : "card-title"}>{task.description}</p>
                 </div>
                 </div>
             </div>

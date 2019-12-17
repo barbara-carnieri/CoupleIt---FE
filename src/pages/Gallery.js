@@ -32,7 +32,8 @@ class Gallery extends Component {
     //  console.log('Gallery -> form submit', { title, photoUrl });
     galleryService.createGallery({ title, photoUrl })
     .then(() => this.fetchGallery())
-    .then(() => this.setState({title: '', photoUrl: ''}));
+    .then(() => this.setState({title: '',
+    photoUrl: ''}));;
   };
 
   handleChange = event => {
@@ -91,7 +92,7 @@ class Gallery extends Component {
               <Link className="d-block mb-2 h-40" to={`/gallery/${gallery._id}`}>
                  <img id="gallery-item" className="rounded img-fluid img-thumbnail figure-img" src={gallery.photoUrl} alt="photoUrl"/>
                 
-                <h5 className="figure-caption text-center">{gallery.title}</h5>
+                {/* <h5 className="figure-caption text-center">{gallery.title}</h5> */}
               </Link>
               </div>
           );

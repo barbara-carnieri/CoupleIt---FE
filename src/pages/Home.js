@@ -88,7 +88,7 @@ class Home extends Component {
               <div  className="card text-white bg-warning sm mb-3 mt-3" >
               <div id="card-header-home" className="card-header m-0 p-0"><Link to={'/task'}><h5 className="m-0 p-0">{task.name}</h5></Link></div>
               <div id="card-body-home" className="card-body p-0">
-                <p className="card-title m-1">{task.description}</p>
+                <p className={task.completed ? "card-completed" :"card-title m-1"}>{task.description}</p>
                 </div>
                 </div>
             </div>
