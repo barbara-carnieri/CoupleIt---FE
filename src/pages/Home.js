@@ -61,32 +61,18 @@ class Home extends Component {
         </div>
 
         
-        <div id="card-home" className="container-fluid">
-        {this.state.tasks.length ? this.state.tasks.slice(0,3).map(task => {
-          return (
-            <div key={task._id} className="card-task">
-              <div  className="card text-white bg-warning sm mb-3 mt-3" >
-              <div className="card-header"><Link to={'/task'}><h5>{task.name}</h5></Link></div>
-              <div className="card-body">
-                <p className="card-title">{task.description}</p>
-                </div>
-                </div>
-            </div>
-          )
-        }) : <h2>No tasks yet</h2>}
-        </div>
 
 
         <div>
-        <Link to={'/gallery'}><h1 className="d-flex justify-content-center badge badge-info"> Gallery</h1></Link>
+        <Link to={'/gallery'}><h1 className="d-flex justify-content-center badge badge-info mt-4"> Gallery</h1></Link>
         {/* <div className="card-deck"> */}
         <div id="carouselExampleSlidesOnly" className="carousel slide" data-ride="carousel">
         {this.state.gallery.length ? this.state.gallery.slice(0,3).map(gallery => {
           return (
             <div key={gallery._id} className="carousel-inner gallery">
             <div className="carousel-item active">
-              <Link to={`/gallery/${gallery._id}`} {...this.props}>
-                 <img src={gallery.photoUrl} className="d-block w-100" alt="photoUrl"/>
+              <Link to={`/gallery/${gallery._id}`} >
+                 <img src={gallery.photoUrl} className="d-block w-100 rounded img-fluid img-thumbnail" alt="photoUrl"/>
               </Link>
               </div>
             </div>
@@ -94,7 +80,22 @@ class Home extends Component {
         }) : <h2>No picture yet</h2>}
         </div>
         </div>
-       
+       <br/>
+        <div id="card-home" className="container-fluid mr-0 ml-0 pr-0 pl-0">
+        {this.state.tasks.length ? this.state.tasks.slice(0,3).map(task => {
+          return (
+            <div key={task._id} className="card-task">
+              <div  className="card text-white bg-warning sm mb-3 mt-3" >
+              <div id="card-header-home" className="card-header m-0 p-0"><Link to={'/task'}><h5 className="m-0 p-0">{task.name}</h5></Link></div>
+              <div id="card-body-home" className="card-body p-0">
+                <p className="card-title m-1">{task.description}</p>
+                </div>
+                </div>
+            </div>
+          )
+        }) : <h2>No tasks yet</h2>}
+        </div>
+        
         {/* <Link to={'/calendar'}><h3>Check out Calendar</h3></Link> */}
 
         <Footer />
@@ -104,3 +105,6 @@ class Home extends Component {
 }
 
 export default withAuth(Home);
+
+
+{/* <Link to={`/gallery/${gallery._id}`} {...this.props}> */}

@@ -35,7 +35,7 @@ class Profile extends Component {
         <p>{email}</p>
         <img src={photoUrl} alt="profilepicture" className="rounded img-fluid img-thumbnail figure-img"/>
       <br/>
-        <Link to={`/user/${this.state.user._id}/edit`} {...this.props} className="btn btn-success"> Edit Profile </Link>
+        <Link to={`/user/${this.state.user._id}/edit`} className="btn btn-success"> Edit Profile </Link>
       
         <Footer />
       </div>

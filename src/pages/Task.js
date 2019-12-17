@@ -50,30 +50,33 @@ class Task extends Component {
         <h1>To Do's</h1>
         <form onSubmit={this.handleFormSubmit}>
         <div className="form-group">
-          <label>Task:</label>
+          <label></label>
           <input className="form-control"
             type="text"
             name="name"
+            placeholder="Task"
             value={name}
             onChange={this.handleChange}
           />
           </div>
-
+ 
         <div className="form-group">
-          <label>Description:</label>
+          <label></label>
+          <div className="d-flex">
           <input className="form-control"
             type="text"
             name="description"
+            placeholder="Description"
             value={description}
             onChange={this.handleChange}
           />
-          </div>
-
-
           <button type="submit" className="btn btn-success" value="ADD">
           <i className="material-icons">add_circle</i>
           </button>
+          </div>
+          </div>
         </form>
+
         {this.state.listOfTasks.map(task => {
           return (
             <div key={task._id} className="gallery card-deck">

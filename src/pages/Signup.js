@@ -67,7 +67,7 @@ class Signup extends Component {
             onChange={this.handleChange}
           />
           </div>
-          <div className="form-group">
+          {/* <div className="form-group">
           <label>Photo:</label>
           <input className="form-control"
             type="file"
@@ -75,7 +75,7 @@ class Signup extends Component {
             // value={photoUrl}
             onChange={e => this.fileChange(e)}
           />
-          </div>
+          </div> */}
           <input type="submit" className="btn btn-success" value="Signup" />
         </form>
 

@@ -58,7 +58,7 @@ class Story extends Component {
         <h1>Countdown Story</h1>
         <form onSubmit={this.handleFormSubmit}>
         <div className="form-group">
-          <label>Date:</label>
+          <label></label>
           <input className="form-control"
             type="date"
             name="date"
@@ -67,7 +67,7 @@ class Story extends Component {
           />
           </div>
           <div className="form-group">
-          <label>Story:</label>
+          <label></label>
           <input className="form-control"
             type="text"
             name="title"
@@ -77,7 +77,7 @@ class Story extends Component {
           />
           </div>
           <div className="form-group">
-          <label>Description:</label>
+          <label></label>
           <input className="form-control"
             type="text"
             name="description"

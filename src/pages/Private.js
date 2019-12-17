@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withAuth } from '../lib/AuthProvider';
 import coupleService from '../lib/couple-service';
-import { Link } from 'react-router-dom';
+
 
 class Private extends Component {
   state = { email: '', name: ''};
@@ -9,9 +9,9 @@ class Private extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     const { email, name } = this.state;
-    coupleService.createCouple({ email, name }).then(createdCouple => {
-      return createdCouple
-    }); // props.signup is Provided by withAuth() and Context API
+    coupleService.createCouple({ email, name })
+      .then(createdCouple => createdCouple )
+      .then(() => this.props.history.push('/home'))
   };
 
 
@@ -47,7 +47,7 @@ class Private extends Component {
           />
           </div>
          
-          <Link to={'/home'} {...this.props} className="btn btn-success" >Match!</Link>
+          <button className="btn btn-success" >Match!</button>
         </form>
       </div>
     );

@@ -103,7 +103,7 @@ h6 {
 }
 
 .card {
-  width: 25vw;
+  width: 27vw;
   height: 10rem;
   margin: 2px;
   padding: 0;
@@ -122,12 +122,20 @@ h6 {
   padding: 50px 10px;
 }
 
+#card-header-home{
+  height: 15%;
+}
+
 .card-header{
-  height: 40%;
+  height: 35%;
 }
 
 .card-body{
-  height: 60%;
+  height: 50%;
+}
+
+#card-body-home{
+  height: 10%;
 }
 
 .card-task{

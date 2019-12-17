@@ -58,7 +58,7 @@ class Gallery extends Component {
         <h1>Add your Photo!</h1>
         <form onSubmit={this.handleFormSubmit} encType="multipart/form-data">
         <div className="form-group">
-          <label>Title:</label>
+          <label></label>
           <input className="form-control"
             type="text"
             name="title"
@@ -68,7 +68,7 @@ class Gallery extends Component {
           />
           </div>
           <div className="form-group">
-          <label>Photo:</label>
+          <label></label>
           <div className="d-flex">
           <input className="form-control"
             type="file"
@@ -88,9 +88,10 @@ class Gallery extends Component {
         {this.state.listOfGallery.map(gallery => {
           return (
             <div key={gallery._id} id="container-gallery" className="figure gallery">
-              <Link className="d-block mb-2 h-40" to={`/gallery/${gallery._id}`} {...this.props}>
+              <Link className="d-block mb-2 h-40" to={`/gallery/${gallery._id}`}>
                  <img id="gallery-item" className="rounded img-fluid img-thumbnail figure-img" src={gallery.photoUrl} alt="photoUrl"/>
-                <h5 className="figure-caption">{gallery.title}</h5>
+                
+                <h5 className="figure-caption text-center">{gallery.title}</h5>
               </Link>
               </div>
           );

@@ -41,9 +41,9 @@ I built it by myself with HTML, ES6, React, Express, Node.js, HTTP, CRUD, Auth.
 ## Backlog
 - Share photo WhatsApp, Instagram, Facebook
 - Google Calendar
--SignIn with Google, Facebook
--Facebook events share
--Real time chat
+- SignIn with Google, Facebook
+- Facebook events share
+- Real time chat
 
 # Client / Frontend
 
