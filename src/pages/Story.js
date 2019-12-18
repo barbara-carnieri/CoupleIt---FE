@@ -76,7 +76,7 @@ class Story extends Component {
             onChange={this.handleChange}
           />
           </div>
-          <div className="form-group">
+          {/* <div className="form-group">
           <label></label>
           <input className="form-control"
             type="text"
@@ -85,19 +85,19 @@ class Story extends Component {
             value={description}
             onChange={this.handleChange}
           />
-          </div>
+          </div> */}
           <div className="form-group">
-          <label htmlFor="exampleFormControlSelect1">Type:</label>
+          <label htmlFor="exampleFormControlSelect1"></label>
           <div className="d-flex">
           <select className="form-control" id="exampleFormControlSelect1"
             name="type"
             value={type}
             onChange={this.handleChange}>
             <option hidden>Select a type</option>
-            <option>Birthday</option>
+            <option>Special Date</option>
             <option>Family</option>
             <option>Friends</option>
-            <option>Special Anniversary</option>
+            <option>Anniversary</option>
           </select>
           <button type="submit" className="btn btn-success pb-0" value="ADD">
           <i className="material-icons">add_circle</i>
@@ -109,19 +109,21 @@ class Story extends Component {
         
 
         {this.state.listOfStories.map(story => {
-        
+          
           return (
             <div key={story._id} className="story">
-            <h6><DateCountdown dateTo={story.date}/> </h6>
+            <h6 className="mt-4"><DateCountdown dateTo={story.date}/> </h6>
                <h1><span className="badge badge-info">{story.title} {story.date}</span></h1>
                 {/* <h3>Story: {story.title}</h3> */}
                 <div className="d-flex justify-content-between">
                 <h4 className="pl-2">{story.type}</h4>
-    	          <i onClick={() => this.deleteStory(story._id)} className="material-icons ">delete_forever</i>
+    	          <button className="btn btn-success btn-sm pb-0 mb-0"><i onClick={() => this.deleteStory(story._id)} className="material-icons ">delete_forever</i></button>
                 </div>
             </div>
           );
         })}
+
+
         {/* <Link to={'/home'}> Home </Link> */}
 
 

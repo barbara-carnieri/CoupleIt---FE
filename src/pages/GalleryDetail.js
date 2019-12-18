@@ -79,11 +79,11 @@ class GalleryDetail extends Component {
                  <img className="img-fluid img-thumbnail" src={this.state.photoUrl} alt="gallerydetail"/>
             
                 <div className="carousel-caption d-flex justify-content-end align-items-bottom p-0 m-0 ">
-                <h4 className="pr-5">{this.state.title}</h4>
-                <FacebookShareButton url={shareUrl} title={this.state.title}>
+                <h4 className="photo-title pr-5">{this.state.title}</h4>
+                <FacebookShareButton url={shareUrl} quote={this.state.title}>
                 <FacebookIcon size={36} round={true} />
                 </FacebookShareButton>
-                <WhatsappShareButton url={shareUrl} title={this.state.title}>
+                <WhatsappShareButton url={shareUrl} quote={this.state.title}>
                 <WhatsappIcon size={36} round={true} />
                 </WhatsappShareButton>
                  

@@ -38,7 +38,7 @@ class ProfileEdit extends Component {
   }
 
   render() {
-    const { username, password, email, photoUrl, id} = this.state;
+    const { username, password, email, id} = this.state;
 
     return (
       <div>

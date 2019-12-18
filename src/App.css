@@ -11,7 +11,11 @@ body {
 
 h1 {
   text-align: center;
+  font-family: 'Barlow Semi Condensed', sans-serif;
 }
+
+/* font-family: 'Denk One', sans-serif; */
+/* font-family: 'Barlow Semi Condensed', sans-serif; */
 
 h6 {
   text-align: center;
@@ -55,8 +59,19 @@ h6 {
   border: none;
 }
 
-.gallery-item {
-  /* height: 10px; */
+.btn-green {
+  background-color: green;
+  border: none;
+  opacity: 0.8;
+  color: white;
+}
+
+#slides {
+  height: 200px;
+}
+
+.photo-title {
+ text-shadow: 2px 2px rgb(126, 103, 103); 
 }
 
 #navbarmain {
@@ -83,6 +98,10 @@ h6 {
 
 #card-gallerydetail {
   margin-top: 90px;
+}
+
+.badge {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 6px 6px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 .figure-caption {
@@ -114,7 +133,7 @@ h6 {
   background-color: whitesmoke;
   border-radius: 7px;
   margin-top: 10px;
-  box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 6px 6px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 
 }
 
@@ -135,9 +154,23 @@ h6 {
 }
 
 .card-completed{
-  height: 50%;
+  height: 35%;
   text-decoration: line-through;
-  color: rgb(10, 95, 28);
+  color: rgb(141, 7, 7);
+  padding-left: 10px;
+}
+
+.card-completed-title{
+  height: 35%;
+  text-decoration: line-through;
+  color: rgb(141, 7, 7);
+  background-color: rgba(0,0,0,.03);
+  border-bottom: 1px solid rgba(0,0,0,.125);
+  padding-left: 18px;
+}
+
+.link-title-task {
+  color: white;
 }
 
 #card-body-home{

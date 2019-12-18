@@ -3,8 +3,8 @@ import userService from '../lib/user-service'
 import { Link } from 'react-router-dom';
 import { withAuth } from '../lib/AuthProvider';
 import Footer from '../components/Footer';
-import  paintingService from '../lib/newPaintingCopy';
-import galleryService from '../lib/gallery-service';
+// import  paintingService from '../lib/newPaintingCopy';
+// import galleryService from '../lib/gallery-service';
 
 
 class Profile extends Component {
@@ -27,7 +27,7 @@ class Profile extends Component {
   }
 
   render() {
-    const { username, email, photoUrl } = this.state.user;
+    const { username, email} = this.state.user;
     return (
       <div className="profile">
         <h1>My Profile</h1>

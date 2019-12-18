@@ -68,8 +68,7 @@ class Gallery extends Component {
             onChange={this.handleChange}
           />
           </div>
-          <div className="form-group">
-          <label></label>
+          <div className="form-group pt-2 mt-0">
           <div className="d-flex">
           <input className="form-control"
             type="file"
@@ -85,7 +84,7 @@ class Gallery extends Component {
         </form>
 
  
-        <div className="row">
+        <div className="row pt-2">
         {this.state.listOfGallery.map(gallery => {
           return (
             <div key={gallery._id} id="container-gallery" className="figure gallery">

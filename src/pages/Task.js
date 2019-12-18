@@ -91,16 +91,18 @@ class Task extends Component {
           return (
             <div key={task._id} className="gallery card-deck">
               <div id="taskcard" className="card text-white bg-warning mb-3 mt-3" >
-              <div className={task.completed ? "card-completed" : "card-header"}><h5>{task.name}</h5></div>
+              <div className={task.completed ? "card-completed-title" : "card-header"}><h5>{task.name}</h5></div>
               <div className="d-flex flex-row-reverse justify-content-between card-body">
-                <button className="btn btn-success btn-sm pb-4"
+                <div>
+                <button className={task.completed ? "btn-green btn-sm pb-0 mb-4" : "btn btn-success btn-sm pb-0 mb-4"}
                 onClick={() => this.crossTask(task)}>
     	          <i className="material-icons">done</i>
       	        </button>
-                <button className="btn btn-success btn-sm pb-4"
+                <button className="btn btn-success btn-sm pb-0 mb-4"
                 onClick={() => this.deleteTask(task._id)}>
     	          <i className="material-icons">delete_forever</i>
       	        </button>
+                </div>
                 <p className={task.completed ? "card-completed" : "card-title"}>{task.description}</p>
                 </div>
                 </div>
