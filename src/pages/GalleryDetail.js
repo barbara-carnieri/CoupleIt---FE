@@ -26,9 +26,7 @@ class GalleryDetail extends Component {
   }
   componentDidMount() {
     const { id } = this.props.match.params;
-
-    this.getPhotoDetail(id)
-  
+    this.getPhotoDetail(id) 
   }
 
   deletePhoto(id) {
@@ -63,8 +61,6 @@ class GalleryDetail extends Component {
   //   })
   //   .catch((error) => console.log(error))
   // }
-
-
 
   render() {
     // const { title, photoUrl} = this.state;
@@ -103,7 +99,4 @@ class GalleryDetail extends Component {
   }
 }
 
-
 export default withAuth(GalleryDetail);
-
-

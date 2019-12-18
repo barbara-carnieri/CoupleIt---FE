@@ -65,7 +65,7 @@ class Home extends Component {
         <Link to={'/gallery'}><h2 id="gallery-x" className="d-flex justify-content-center badge badge-info mt-4">GALLERY</h2></Link>
         {/* <div className="card-deck"> */}
         <div id="carouselExampleSlidesOnly" className="carousel slide" data-ride="carousel" data-interval="2000">
-          { galleryArray ? 
+          { galleryArray.length === 3 ? 
             <div className="carousel-inner gallery">
             <div className="carousel-item active">
               <Link to={`/gallery/${galleryArray[0]._id}`} >
@@ -84,8 +84,6 @@ class Home extends Component {
               </div>
             </div>
           : <h2>No picture yet</h2>}
-       
-          
         </div>
         </div>
 
@@ -103,7 +101,7 @@ class Home extends Component {
                 </div>
             </div>
           )
-        }) : <h2>No tasks yet</h2>}
+        }) : <h2 className="ml-4">No tasks yet</h2>}
         </div>
         
         {/* <Link to={'/calendar'}><h3>Check out Calendar</h3></Link> */}

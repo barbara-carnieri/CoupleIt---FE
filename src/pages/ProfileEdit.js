@@ -3,22 +3,34 @@ import { withAuth } from '../lib/AuthProvider';
 import  paintingService from '../lib/newPaintingCopy';
 import  userService from '../lib/user-service';
 import Footer from '../components/Footer';
-import { Link } from 'react-router-dom';
 
 class ProfileEdit extends Component {
   state = {
-    id: this.props.user._id,
-    username: this.props.user.username, 
-    password: this.props.user.password, 
-    email: this.props.user.email, 
-    photoUrl: this.props.user.photoUrl
+    id: '',
+    username: '', 
+    password: '', 
+    email: '', 
+    photoUrl: ''
   };
+
+  componentDidMount() {
+    const {id} = this.props.match.params;
+    userService.getOneById(id).then(user => this.setState({
+      id: user._id,
+      username: user.username, 
+      password: user.password, 
+      email: user.email, 
+      photoUrl: user.photoUrl
+    }))
+    console.log(this.state)
+  }
 
   handleFormSubmit = event => {
     event.preventDefault();
     const { username, password, email, photoUrl} = this.state;
     userService.updateUser(this.props.user._id, 
-      { username, password, email, photoUrl, coupleId: this.props.user.coupleId }); // props.signup is Provided by withAuth() and Context API
+      { username, password, email, photoUrl, coupleId: this.props.user.coupleId })
+      .then(() => this.props.history.push(`/user/${this.props.user._id}`)); // props.signup is Provided by withAuth() and Context API
   };
 
   handleChange = event => {
@@ -80,8 +92,7 @@ class ProfileEdit extends Component {
             onChange={e => this.fileChange(e)}
           />
         </div> */}
-        
-          <Link to={`/user/${id}`} type="submit" className="btn btn-success">Update</Link>
+        <input type="submit" className="btn btn-success" value="Update" onClick={this.handleFormSubmit}/>
         </form>
 
         <Footer />
@@ -91,8 +102,3 @@ class ProfileEdit extends Component {
 }
 
 export default withAuth(ProfileEdit);
-
-
-
-
-
