@@ -29,9 +29,9 @@ class Profile extends Component {
   render() {
     const { username, email} = this.state.user;
     return (
-      <div className="profile">
+      <div className="profile mt-3 pt-2">
         <h1>My Profile</h1>
-        <h2>{username}</h2>
+        <h2 className="mt-3 pt-2">{username}</h2>
         <p>{email}</p>
         {/* <img src={photoUrl} alt="profilepicture" className="rounded img-fluid img-thumbnail figure-img"/> */}
       <br/>

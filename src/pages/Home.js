@@ -62,7 +62,7 @@ class Home extends Component {
         </div>
 
         <div>
-        <Link to={'/gallery'}><h1 className="d-flex justify-content-center badge badge-info mt-4"> GALLERY</h1></Link>
+        <Link to={'/gallery'}><h2 id="gallery-x" className="d-flex justify-content-center badge badge-info mt-4">GALLERY</h2></Link>
         {/* <div className="card-deck"> */}
         <div id="carouselExampleSlidesOnly" className="carousel slide" data-ride="carousel" data-interval="2000">
           { galleryArray ? 
