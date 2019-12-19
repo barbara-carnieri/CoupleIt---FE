@@ -9,7 +9,7 @@ class Painting {
   }
 
 imageUpload(file) {
-  console.log(file);
+  // console.log(file);
   return this.auth.post("/painting", file).then(({ data }) => {
     return data;
   });

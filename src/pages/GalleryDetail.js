@@ -19,7 +19,7 @@ class GalleryDetail extends Component {
       thePhoto => {
         this.setState({title: thePhoto.title,
         photoUrl: thePhoto.photoUrl})
-        console.log('RESSS', this.state);
+        // console.log('RESSS', this.state);
         
       }
     );

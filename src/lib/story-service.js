@@ -14,7 +14,7 @@ import axios from 'axios';
     return this.storyService
     .post('/', { date, title, description, type })
     .then( response => {
-      console.log(response)
+      // console.log(response)
         const {newStory} = response.config.data;
         return newStory;
     })

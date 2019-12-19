@@ -22,7 +22,7 @@ class ProfileEdit extends Component {
       email: user.email, 
       photoUrl: user.photoUrl
     }))
-    console.log(this.state)
+    // console.log(this.state)
   }
 
   handleFormSubmit = event => {

@@ -16,7 +16,7 @@ import axios from 'axios';
   }
 
   updateUser = (id, userUpdated ) =>{
-    console.log(userUpdated)
+    // console.log(userUpdated)
     return this.userService
     .put(`/${id}/edit`, userUpdated)
     .then((data)=> data )
