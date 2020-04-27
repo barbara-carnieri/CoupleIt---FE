@@ -4,7 +4,7 @@
 
 Open [https://coupleit-app.herokuapp.com](https://coupleit-app.herokuapp.com) to view it in the browser.
 
-![CoupleIt](/public/images/coupleitdemo.png)
+![CoupleIt](/public/coupleitdemo.png)
 
 
 ## Description
