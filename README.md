@@ -1,5 +1,12 @@
 # COUPLE IT
 
+### `Deploy Link`
+
+Open [https://coupleit-app.herokuapp.com](https://coupleit-app.herokuapp.com) to view it in the browser.
+
+![CoupleIt](/public/images/coupleitdemo.png)
+
+
 ## Description
 CoupleIt is a tool that helps you and your partner to organise the life together. Collaborative platform for couples sharing features as counting important dates, to-do tasks, photo gallery and calendar.
 I built it by myself with HTML, ES6, React, Express, Node.js, HTTP, CRUD, Auth.
